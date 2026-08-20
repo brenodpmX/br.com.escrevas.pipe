@@ -77,7 +77,7 @@ agents:
       name: Diego Santos - Analista de Operações
       model: claude-haiku-4.5
     research:
-      name: Marta Gomes - Bibliotecária
+      name: Elaine Duarte - Bibliotecária
       model: auto
 
 
