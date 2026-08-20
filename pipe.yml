@@ -331,7 +331,7 @@ boards:
         name: "Casos de Teste"
         agent: quality
         gitevents: create
-        target-prompt: "Analisar a issue;\n- Avaliar os casos de testes já existente;\n- Criar/Alterar os casos de teste para o serviço.\n\nAtenção: faça exclusivamente o que foi pedido.\n\nCaso a issue gere alguma dúvida:\n- Se for algo simples pergunte via chat e adicione a label 'need-human';\n- Se for uma dúvida complexa ou uma definição ausente, crie uma issue no board 'Débito' na coluna que representa o agente que sanará a dúvida e bloqueie a issue corrente com o débito."
+        target-prompt: "Analisar a issue;\n- Avaliar os casos de testes já existente;\n- Criar/Alterar os casos de teste para o serviço.\n\nAtenção: faça exclusivamente o que foi pedido.\n\nCaso a issue gere alguma dúvida:\n- Se for algo simples pergunte via chat e adicione a label 'need_human';\n- Se for uma dúvida complexa ou uma definição ausente, crie uma issue no board 'Débito' na coluna que representa o agente que sanará a dúvida e bloqueie a issue corrente com o débito."
         change:
           advance: desenvolvimento
       desenvolvimento:
@@ -342,7 +342,7 @@ boards:
           middle: engineering-pl
           high: engineering-sr
         gitevents: use
-        target-prompt: "Analisar a issue;\n- Avaliar os casos de testes criados;\n- Quando possível executar TDD;\n- Desenvolver o código de acordo com o que foi solicitado;\n- Cobrir os novos códigos.\n\nAtenção: faça exclusivamente o que foi pedido.\n\nCaso a issue gere alguma dúvida:\n-Se for referente aos casos de teste, devolva a issue ao tester avançando para revisar-caso-de-teste;\n- Se for algo simples pergunte via chat e adicione a label 'need-human';\n- Se for uma dúvida complexa ou uma definição ausente, crie uma issue no board 'Débito' na coluna que representa o agente que sanará a dúvida e bloqueie a issue corrente com o débito."
+        target-prompt: "Analisar a issue;\n- Avaliar os casos de testes criados;\n- Quando possível executar TDD;\n- Desenvolver o código de acordo com o que foi solicitado;\n- Cobrir os novos códigos.\n\nAtenção: faça exclusivamente o que foi pedido.\n\nCaso a issue gere alguma dúvida:\n-Se for referente aos casos de teste, devolva a issue ao tester avançando para revisar-caso-de-teste;\n- Se for algo simples pergunte via chat e adicione a label 'need_human';\n- Se for uma dúvida complexa ou uma definição ausente, crie uma issue no board 'Débito' na coluna que representa o agente que sanará a dúvida e bloqueie a issue corrente com o débito."
         change:
           advance: execucao-testes
           revisar-caso-de-teste: casos-de-teste
