@@ -101,7 +101,7 @@ boards:
         name: "Análise de Negócio"
         agent: product
         gitevents: create
-        target-prompt: "A partir da descrição da Issue, das documentações existentes e da entrevista com o usuário (use o histórico e add comment da issue para entrevistar o usuário), deverá fazer o levantamento negocial da demanda e criar as documentações negociais do ponto de vista do produto. A linguagem utilizada é o mais negocial possível, evitando apontamentos técnicos. Objetivo é entregar toda a documentação negocial necessária e reescrever a issue para refletir o que será desenvolvido. Não será criado stories nesta etapa. Entreviste o usuário quantas vezes forem necessário. Use a label 'need_human' para sinalizar que precisa de respostas."
+        target-prompt: "Conduza a diligência de negócio do épico até ele estar apto a avançar.\n\nFaça:\n- Entreviste o dono pelo history/addcomment, tratando as respostas como hipóteses a validar contra fatos, dados e pesquisa de mercado.\n- Pesquise mercado, alternativas e o custo de não fazer; onde faltar prova, pergunte ou pesquise, não suponha.\n- Feche dor, retorno (e como medi-lo), ordem de esforço e aderência a metas e políticas.\n- Sinalize espera por resposta com 'need_human'. Não simule entrevista, não decida tecnologia/arquitetura, não crie stories.\n\nResultado: documentação de negócio que sustente aprovar ou recusar (com justificativa) e o body da issue reescrito refletindo o que será construído."
         change:
           advance: aprovacao-negocio
       aprovacao-negocio:
