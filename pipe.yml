@@ -76,9 +76,6 @@ agents:
     generic:
       name: Diego Santos - Analista de Operações
       model: claude-haiku-4.5
-    research:
-      name: Elaine Duarte - Bibliotecária
-      model: auto
 
 
 
@@ -104,7 +101,7 @@ boards:
         name: "Análise de Negócio"
         agent: product
         gitevents: create
-        target-prompt: "A partir da descrição da Issue, das documentações existentes, dos documentos na biblioteca e da entrevista com o usuário (use o histórico e add comment da issue para entrevistar o usuário), deverá fazer o levantamento negocial da demanda e criar as documentações negociais do ponto de vista do produto. A linguagem utilizada é o mais negocial possível, evitando apontamentos técnicos. Solicite pesquisa somente quando for estritamente necessário: apenas se faltar conhecimento externo (documentação, especificação ou norma) que você não tem, que a biblioteca também não tem e sem o qual não consegue avançar. Antes, consulte a biblioteca (`docs/biblioteca`) e use o que já existir e estiver atual. Não abra pesquisa para o que já sabe ou pode decidir, nem fragmente seu próprio trabalho em pesquisas — pesquisa é exceção, não etapa. Quando for mesmo necessário, abra uma pesquisa por assunto usando `contexts/artifacts/pesquisa-issue.md` e bloqueie esta issue até concluir; escolha o modo panorama (mapear opções de um assunto, cada uma com resumo curto e citável, quando ainda vai escolher) ou referência completa (espelhar a documentação atual e completa de um alvo já definido). A pesquisa traz conhecimento com fonte; a escolha e o design continuam com você; solicite apenas o que tenha fonte citável e não peça recomendação, veredito ou métrica sem origem. Objetivo é entregar toda a documentação negocial necessária e reescrever a issue para refletir o que será desenvolvido. Não será criado stories nesta etapa. Entreviste o usuário quantas vezes forem necessário. Use a label 'need_human' para sinalizar que precisa de respostas."
+        target-prompt: "A partir da descrição da Issue, das documentações existentes e da entrevista com o usuário (use o histórico e add comment da issue para entrevistar o usuário), deverá fazer o levantamento negocial da demanda e criar as documentações negociais do ponto de vista do produto. A linguagem utilizada é o mais negocial possível, evitando apontamentos técnicos. Objetivo é entregar toda a documentação negocial necessária e reescrever a issue para refletir o que será desenvolvido. Não será criado stories nesta etapa. Entreviste o usuário quantas vezes forem necessário. Use a label 'need_human' para sinalizar que precisa de respostas."
         change:
           advance: aprovacao-negocio
       aprovacao-negocio:
@@ -115,7 +112,7 @@ boards:
         name: "Requisitos"
         agent: requirements
         gitevents: create
-        target-prompt: "A partir da documentação já criada e dos documentos na biblioteca, precisamos fechar as lacunas para não restar nenhuma dúvida do que será implementado. Entreviste o humano quantas vezes achar necessário utilizando o history e addcomment da issue. Solicite pesquisa somente quando for estritamente necessário: apenas se faltar conhecimento externo (documentação, especificação ou norma) que você não tem, que a biblioteca também não tem e sem o qual não consegue avançar. Antes, consulte a biblioteca (`docs/biblioteca`) e use o que já existir e estiver atual. Não abra pesquisa para o que já sabe ou pode decidir, nem fragmente seu próprio trabalho em pesquisas — pesquisa é exceção, não etapa. Quando for mesmo necessário, abra uma pesquisa por assunto usando `contexts/artifacts/pesquisa-issue.md` e bloqueie esta issue até concluir; escolha o modo panorama (mapear opções de um assunto, cada uma com resumo curto e citável, quando ainda vai escolher) ou referência completa (espelhar a documentação atual e completa de um alvo já definido). A pesquisa traz conhecimento com fonte; a escolha e o design continuam com você; solicite apenas o que tenha fonte citável e não peça recomendação, veredito ou métrica sem origem; Quando não restar dúvidas, crie ou edite as documentações de sua responsabilidade"
+        target-prompt: "A partir da documentação já criada, precisamos fechar as lacunas para não restar nenhuma dúvida do que será implementado. Entreviste o humano quantas vezes achar necessário utilizando o history e addcomment da issue. Quando não restar dúvidas, crie ou edite as documentações de sua responsabilidade"
         change:
           advance: validacao-negocial
       validacao-negocial:
@@ -126,7 +123,7 @@ boards:
         name: "Prototipação"
         agent: ux
         gitevents: use
-        target-prompt: "A partir da documentação já criada, dos documentos na biblioteca, entreviste o humano (utilizando o history e addcomment da issue) tentando entender ao máximo a ideia que ele tem em mente. Solicite pesquisa somente quando for estritamente necessário: apenas se faltar conhecimento externo (documentação, especificação ou norma) que você não tem, que a biblioteca também não tem e sem o qual não consegue avançar. Antes, consulte a biblioteca (`docs/biblioteca`) e use o que já existir e estiver atual. Não abra pesquisa para o que já sabe ou pode decidir, nem fragmente seu próprio trabalho em pesquisas — pesquisa é exceção, não etapa. Quando for mesmo necessário, abra uma pesquisa por assunto usando `contexts/artifacts/pesquisa-issue.md` e bloqueie esta issue até concluir; escolha o modo panorama (mapear opções de um assunto, cada uma com resumo curto e citável, quando ainda vai escolher) ou referência completa (espelhar a documentação atual e completa de um alvo já definido). A pesquisa traz conhecimento com fonte; a escolha e o design continuam com você; solicite apenas o que tenha fonte citável e não peça recomendação, veredito ou métrica sem origem, quando não houver mais lacunas, crie as documentações, protótipos e o que mais for de sua responsabilidade. Nunca simule uma entrevista, o humano está a sua inteira disposição."
+        target-prompt: "A partir da documentação já criada, entreviste o humano (utilizando o history e addcomment da issue) tentando entender ao máximo a ideia que ele tem em mente. Quando não houver mais lacunas, crie as documentações, protótipos e o que mais for de sua responsabilidade. Nunca simule uma entrevista, o humano está a sua inteira disposição."
         change:
           advance: validacao-prototipo
       validacao-prototipo:
@@ -137,7 +134,7 @@ boards:
         name: "Arquitetura"
         agent: architecture
         gitevents: use
-        target-prompt: "A partir da documentação, dos documentos na biblioteca e da prototipação, planejar a arquitetura do projeto, faça:\n- Verifique as documentações arquiteturais já existentes;\nBuscar padrões compatíveis para o projeto. Solicite pesquisa somente quando for estritamente necessário: apenas se faltar conhecimento externo (documentação, especificação ou norma) que você não tem, que a biblioteca também não tem e sem o qual não consegue avançar. Antes, consulte a biblioteca (`docs/biblioteca`) e use o que já existir e estiver atual. Não abra pesquisa para o que já sabe ou pode decidir, nem fragmente seu próprio trabalho em pesquisas — pesquisa é exceção, não etapa. Quando for mesmo necessário, abra uma pesquisa por assunto usando `contexts/artifacts/pesquisa-issue.md` e bloqueie esta issue até concluir; escolha o modo panorama (mapear opções de um assunto, cada uma com resumo curto e citável, quando ainda vai escolher) ou referência completa (espelhar a documentação atual e completa de um alvo já definido). A pesquisa traz conhecimento com fonte; a escolha e o design continuam com você; solicite apenas o que tenha fonte citável e não peça recomendação, veredito ou métrica sem origem;\n- Evite arquiteturas mirabolantes ou muito elaboradas, procure o simples que funciona (evite a modinha da vez);\n- Quando tiver tudo que precisa crie e ou atualize a documentação arquitetural do projeto."
+        target-prompt: "A partir da documentação e da prototipação, planejar a arquitetura do projeto, faça:\n- Verifique as documentações arquiteturais já existentes;\nBuscar padrões compatíveis para o projeto.\n- Evite arquiteturas mirabolantes ou muito elaboradas, procure o simples que funciona (evite a modinha da vez);\n- Quando tiver tudo que precisa crie e ou atualize a documentação arquitetural do projeto."
         change:
           advance: validacao-arquitetura
       validacao-arquitetura:
@@ -208,45 +205,6 @@ boards:
         on_out: [-archive]
   
   
-  pesquisa:
-    name: "Escrevas - Pesquisa"
-    todo: pesquisar
-    priority: 1
-    columns:
-      pesquisar:
-        name: "Pesquisar"
-        change:
-          advance: pesquisando
-      pesquisando:
-        name: "Pesquisando"
-        agent: research
-        target-prompt: "Execute a pesquisa desta issue conforme seu contexto: ledger de evidências, uma fonte e um recorte por vez, verificando cada fonte na origem (fetch). Antes, verifique se já existe documento equivalente na biblioteca e atualize-o em vez de duplicar. Trabalhe de forma incremental: a cada parada faça commit e push na branch indicada na issue e registre no addcomment o que já cobriu e qual é o próximo item. Não remova a label retrabalho se ela existir. Só avance para checagem quando todo ponto da solicitação tiver recorte ou Lacuna declarada; caso contrário, encerre a execução sem avançar de coluna (a esteira retomará no próximo ciclo)."
-        change:
-          advance: checagem
-      checagem:
-        name: "Checagem"
-        agent: architecture
-        target-prompt: "Confira o ledger contra as fontes: cada recorte com URL acessível (HTTP 200), trecho literal localizável na página e metadados completos; cada ponto da solicitação com recorte ou Lacuna declarada; resumo apenas descritivo. Lacuna honesta (fonte buscada e não encontrada) NÃO é motivo de retrabalho — só reprove por fabricação, fonte inexistente ou conteúdo que não corresponde à fonte. Registre cada problema de forma objetiva e rastreável no comentário. Decisão: se adequado, avance para advance. Se reprovado, compare os problemas atuais com seus pareceres anteriores no histórico: (1) se qualquer problema que você já apontou antes persistir ou reaparecer (mesmo problema/regressão), avance para impedimento; (2) se os problemas anteriores foram corrigidos e só surgiram problemas novos, conte quantas reprovações já existem no histórico — se já houver 2 reprovações anteriores (esta seria a 3ª, atingindo o teto), avance para impedimento; caso contrário, garanta a label retrabalho e avance para refazer."
-        change:
-          advance: concluido
-          refazer: pesquisando
-          impedimento: impedimento
-      impedimento:
-        name: "Impedimento"
-        on_in: [need_human]
-        on_out: [-need_human]
-      concluido:
-        name: "Concluído"
-        agent: generic
-        target-prompt: "Remova desta issue todas as relações de bloqueio existente e avance para advance"
-        change:
-          advance: encerrado
-      encerrado:
-        name: "Encerrado"
-        on_in: [archive]
-        on_out: [-archive]
-
-
   story:
     name: "Escrevas - User Stories"
     todo: backlog
@@ -390,7 +348,7 @@ boards:
     name: "Escrevas - Bugs"
     todo: backlog
     priority: 4
-    # sem flow: branch de origem/correção vêm das Referências da issue (modelo pesquisa)
+    # sem flow: branch de origem/correção vêm das Referências da issue
     columns:
       backlog:
         name: Backlog
@@ -551,7 +509,7 @@ boards:
         name: "Decisão de tratamento"
         agent: tech-lead
         gitevents: use
-        target-prompt: "# Análise Final\n\n> Importante: esta etapa não executa a decisão, apenas define, outro agente terá a responsabilidade de executar tudo que esta aqui decidir.\n\n- Avaliar as análise anteriores;\n- Ler documentações, especificações e regras (levar em consideração tanto as documentações internas, quanto as externas)\n    - Solicite pesquisa somente quando for estritamente necessário: apenas se faltar conhecimento externo (documentação, especificação ou norma) que você não tem, que a biblioteca também não tem e sem o qual não consegue avançar. Antes, consulte a biblioteca (`docs/biblioteca`) e use o que já existir e estiver atual. Não abra pesquisa para o que já sabe ou pode decidir, nem fragmente seu próprio trabalho em pesquisas — pesquisa é exceção, não etapa. Quando for mesmo necessário, abra uma pesquisa por assunto usando `contexts/artifacts/pesquisa-issue.md` e bloqueie esta issue até concluir; escolha o modo panorama (mapear opções de um assunto, cada uma com resumo curto e citável, quando ainda vai escolher) ou referência completa (espelhar a documentação atual e completa de um alvo já definido). A pesquisa traz conhecimento com fonte; a escolha e o design continuam com você; solicite apenas o que tenha fonte citável e não peça recomendação, veredito ou métrica sem origem.\n\n# Decisão de tratamento\n\nA partir das análises anteriores, decidir se o caminho a ser tomado será:\n\n- Opção 1: Entender que ser trata de um problema grave e devemos continuar a tratá-lo como um incidente produtivo. Neste caso continuaremos tratando ele pelo board de incidente e a issue deverá seguir o fluxo;\n- Opção 2: Entender que se trata de um problema intermediário ou leve e para solucioná-lo é necessário apenas uma task de correção. Neste caso criaremos uma issue de correção no board 'Task' e neste caso o trabalho da issue estará concluído;\n- Opção 3: Entender que se trata de uma nova funcionalidade e não um problema não tratado: Neste caso criaremos uma issue no board Epic e neste caso o trabalho da issue estará concluído;\n- Opção 4: Entender que não há nada a ser feito e neste caso o trabalho da issue estará cancelado.\n\n# Conclusão\n\n- Após a tomada de decisão, a escolha deverá ser registrada em detalhes no capitulo 'Ação proposta' do arquivo do incidente. Caso a escolha envolva criar outras issues, para cada nova issue:\n    - informe o board, o nome e o conteúdo da issues com a riqueza de detalhes que o template referente a ele em `escrevas/.kiro/artifacts/` exige.\n- Avançar a issue atual para advance.\n\n\n"
+        target-prompt: "# Análise Final\n\n> Importante: esta etapa não executa a decisão, apenas define, outro agente terá a responsabilidade de executar tudo que esta aqui decidir.\n\n- Avaliar as análise anteriores;\n- Ler documentações, especificações e regras (levar em consideração tanto as documentações internas, quanto as externas)\n\n\n# Decisão de tratamento\n\nA partir das análises anteriores, decidir se o caminho a ser tomado será:\n\n- Opção 1: Entender que ser trata de um problema grave e devemos continuar a tratá-lo como um incidente produtivo. Neste caso continuaremos tratando ele pelo board de incidente e a issue deverá seguir o fluxo;\n- Opção 2: Entender que se trata de um problema intermediário ou leve e para solucioná-lo é necessário apenas uma task de correção. Neste caso criaremos uma issue de correção no board 'Task' e neste caso o trabalho da issue estará concluído;\n- Opção 3: Entender que se trata de uma nova funcionalidade e não um problema não tratado: Neste caso criaremos uma issue no board Epic e neste caso o trabalho da issue estará concluído;\n- Opção 4: Entender que não há nada a ser feito e neste caso o trabalho da issue estará cancelado.\n\n# Conclusão\n\n- Após a tomada de decisão, a escolha deverá ser registrada em detalhes no capitulo 'Ação proposta' do arquivo do incidente. Caso a escolha envolva criar outras issues, para cada nova issue:\n    - informe o board, o nome e o conteúdo da issues com a riqueza de detalhes que o template referente a ele em `escrevas/.kiro/artifacts/` exige.\n- Avançar a issue atual para advance.\n\n\n"
         change:
           advance: analise-relatorio
       analise-relatorio:
