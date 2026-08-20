@@ -29,7 +29,7 @@ requisito | arquitetura | regressão
 
 ## Referências (obrigatório)
 - **Issue original**: <Preencher com o nome da issue que criou o bug>
-- **Branch originall**: <Preencher com o nome da branch da issue original>
+- **Branch original**: <Preencher com o nome da branch da issue original>
 
 <adicionar tags aqui>
 ```

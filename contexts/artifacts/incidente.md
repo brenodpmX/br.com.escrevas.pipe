@@ -14,7 +14,7 @@ Owner: product
 Last updated: YYYY-MM-DD
 
 ## Registro
-> Contém informaçõe preeliminares do incidente/problema
+> Contém informações preliminares do incidente/problema
 
 ### Descrição:
 - Data: <Data e hora da ocorrência>
