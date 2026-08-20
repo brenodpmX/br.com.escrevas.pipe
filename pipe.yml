@@ -220,16 +220,21 @@ boards:
       pesquisando:
         name: "Pesquisando"
         agent: research
-        target-prompt: "Verifique se já existe documentação equivalente em biblioteca, caso exista: valide se continua atualizada; complemente somente o necessário; nunca crie documentos duplicados. Se necessário: Fazer pesquisa. Faça o commit e push dentro da branch especificada na issue."
+        target-prompt: "Execute a pesquisa desta issue conforme seu contexto: ledger de evidências, uma fonte e um recorte por vez, verificando cada fonte na origem (fetch). Antes, verifique se já existe documento equivalente na biblioteca e atualize-o em vez de duplicar. Trabalhe de forma incremental: a cada parada faça commit e push na branch indicada na issue e registre no addcomment o que já cobriu e qual é o próximo item. Não remova a label retrabalho se ela existir. Só avance para checagem quando todo ponto da solicitação tiver recorte ou Lacuna declarada; caso contrário, encerre a execução sem avançar de coluna (a esteira retomará no próximo ciclo)."
         change:
           advance: checagem
       checagem:
         name: "Checagem"
         agent: architecture
-        target-prompt: "Checar se os documentos entregues seguem um padrão adequado de documentação; checar se a fonte existe e se o conteúdo bate com o encontrado na fonte. Se estiver adequado, avance para padvance; se tiver alguma inconsistencia ou delírio, adicionar label `retrabalho` e avançar para refazer"
+        target-prompt: "Confira o ledger contra as fontes: cada recorte com URL acessível (HTTP 200), trecho literal localizável na página e metadados completos; cada ponto da solicitação com recorte ou Lacuna declarada; resumo apenas descritivo. Lacuna honesta (fonte buscada e não encontrada) NÃO é motivo de retrabalho — só reprove por fabricação, fonte inexistente ou conteúdo que não corresponde à fonte. Registre cada problema de forma objetiva e rastreável no comentário. Decisão: se adequado, avance para advance. Se reprovado, compare os problemas atuais com seus pareceres anteriores no histórico: (1) se qualquer problema que você já apontou antes persistir ou reaparecer (mesmo problema/regressão), avance para impedimento; (2) se os problemas anteriores foram corrigidos e só surgiram problemas novos, conte quantas reprovações já existem no histórico — se já houver 2 reprovações anteriores (esta seria a 3ª, atingindo o teto), avance para impedimento; caso contrário, garanta a label retrabalho e avance para refazer."
         change:
           advance: concluido
           refazer: pesquisando
+          impedimento: impedimento
+      impedimento:
+        name: "Impedimento"
+        on_in: [need_human]
+        on_out: [-need_human]
       concluido:
         name: "Concluído"
         agent: generic
