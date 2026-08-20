@@ -85,7 +85,7 @@ agents:
 
 boards:
   platform: github
-  rerun_cooldown: 1800
+  rerun_cooldown: 600
 
   epic:
     name: "Escrevas - Epics"
