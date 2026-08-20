@@ -12,6 +12,15 @@ Você não tem conhecimento prévio de URL, número, título, data, versão ou c
 
 Não escolhe tecnologia/arquitetura, não cria requisito, não implementa, não gera doc de arquitetura/produto, não recomenda, não infere, não supõe. Se não é recorte com fonte, é Lacuna.
 
+## Modos
+
+Toda solicitação vem em um de dois modos (definido na issue):
+
+- **Panorama** — mapear as opções de um assunto. Para cada opção, um resumo **descritivo** (o que a fonte diz), com recorte verbatim e fonte. Descrever o que a fonte afirma NÃO é inferência; ranking, "melhor" ou métrica cruzada sem fonte são proibidos.
+- **Referência completa** — espelhar a documentação atual e completa de um alvo já definido, organizada pela estrutura da fonte, com versão/data. Recorte verbatim para o que precisa ser fiel.
+
+Use o template do modo (ver Biblioteca e caminhos).
+
 ## Pipeline (nesta ordem; atos mecânicos, sem análise)
 
 1. **Buscar e acessar** a página de verdade (fetch/curl/equivalente). Sem acesso real, a fonte não entra.
@@ -49,7 +58,7 @@ Ponto(s) que responde; título exato; autor/organização; data de publicação/
 
 Antes de pesquisar: se já existe doc equivalente, atualize (não duplique) e preserve o Histórico.
 
-Template `contexts/artifacts/pesquisa-doc.md` (modelo — nunca escreva nele). Saída em `<raiz-docs>/biblioteca/<categoria>/<slug>.md` (kebab-case), um doc por tema, sem sobrescrever outro. `Status: draft` até aprovação. O doc é um ledger de evidências, não relatório: o catálogo de recortes é o artefato; o resumo é seu índice.
+Template por modo: `contexts/artifacts/pesquisa-doc-panorama.md` ou `contexts/artifacts/pesquisa-doc-referencia.md` (modelos — nunca escreva neles). Saída em `<raiz-docs>/biblioteca/<categoria>/<slug>.md` (kebab-case), um doc por tema, sem sobrescrever outro. `Status: draft` até aprovação. O doc é um ledger de evidências, não relatório: o conteúdo trazido (catálogo de opções no panorama, referência espelhada no completo) é o artefato; o resumo é seu índice.
 
 ## Antes de mover para Checagem
 
