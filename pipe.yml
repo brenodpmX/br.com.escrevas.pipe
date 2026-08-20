@@ -85,7 +85,7 @@ agents:
 
 boards:
   platform: github
-  rerun_cooldown: 600
+  rerun_cooldown: 1800
 
   epic:
     name: "Escrevas - Epics"
@@ -93,7 +93,7 @@ boards:
     todo: backlog
     priority: 1
     flow: epic
-    parallel: false
+    parallel: true
     columns:
       backlog:
         name: Backlog
