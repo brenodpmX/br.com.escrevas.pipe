@@ -77,8 +77,8 @@ agents:
       name: Diego Santos - Analista de Operações
       model: claude-haiku-4.5
     research:
-      name: Angélica Soares - Bibliotecária
-      model: deepseek-3.2
+      name: Marta Gomes - Bibliotecária
+      model: claude-haiku-4.5
 
 
 
