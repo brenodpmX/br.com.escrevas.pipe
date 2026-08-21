@@ -1,4 +1,4 @@
-sleep: 60
+sleep: 600
 
 log:
   dir: logs
