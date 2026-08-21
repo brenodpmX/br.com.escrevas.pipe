@@ -2,25 +2,20 @@
 
 ## Utilidade
 
-Explicita regras de negócio que atravessam user stories. Serve como referência centralizada para arquitetura, engenharia e QA evitarem suposições.
+Regras de negócio que atravessam o épico, explícitas e rastreáveis. Referência única para UX, arquitetura, engenharia e QA — elimina suposição sobre "o que vale".
 
 ## Layout de Documentação
 
 ```markdown
-# Regras de Negócio — <nome do épico>
-
-Status: draft | approved | deprecated
-Owner: requirements
-Last updated: YYYY-MM-DD
-
-## Inputs
-- <arquivos utilizados>
+# Regras de Negócio — <épico>
+Status: draft | approved | deprecated · Owner: requirements · Updated: YYYY-MM-DD
+Inputs: <artefatos usados>
 
 ## RN-001 — <título>
-
-**Descrição:** <regra clara>
-**Contexto:** <quando se aplica>
-**Exceções:** <quando NÃO se aplica>
+- Regra: <afirmação inequívoca; uma obrigação>
+- Contexto: <quando se aplica>
+- Exceções: <quando NÃO se aplica>
+- Fonte: <artefato/decisão de negócio que a origina>
 ```
 
 ## Caminho do Arquivo

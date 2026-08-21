@@ -1,4 +1,4 @@
-sleep: 600
+sleep: 1800
 
 log:
   dir: logs
@@ -112,7 +112,7 @@ boards:
         name: "Requisitos"
         agent: requirements
         gitevents: create
-        target-prompt: "A partir da documentação já criada, precisamos fechar as lacunas para não restar nenhuma dúvida do que será implementado. Entreviste o humano quantas vezes achar necessário utilizando o history e addcomment da issue. Quando não restar dúvidas, crie ou edite as documentações de sua responsabilidade"
+        target-prompt: "Feche o baseline de requisitos do épico a partir da documentação de negócio aprovada, até não restar dúvida sobre o que será construído.\n\nFaça:\n- Cubra a documentação existente antes de perguntar; identifique lacunas, ambiguidades e regras implícitas e priorize por risco.\n- Entreviste o cliente pelo history/addcomment quantas rodadas precisar (sinalize a espera com 'need_human'); pesquise fonte externa atual quando o dado não vier dele. Não simule entrevista.\n- Especifique requisitos funcionais (atores, dados, fluxos principais/alternativos), regras de negócio, NFRs mensuráveis e o padrão de critérios de aceitação (Dado/Quando/Então).\n- Cada requisito: não ambíguo, completo, consistente, necessário e testável isoladamente. Não defina arquitetura/tecnologia, não prototipe, não quebre em stories, não implemente. Contradição entre artefatos → pare e sinalize.\n\nResultado: baseline de requisitos que UX, arquitetura e a quebra em stories consumam sem suposições, e o body da issue refletindo o escopo acordado."
         change:
           advance: validacao-negocial
       validacao-negocial:

@@ -2,31 +2,24 @@
 
 ## Utilidade
 
-Define atributos de qualidade do sistema (performance, segurança, escalabilidade, disponibilidade) de forma mensurável. Serve como input para arquitetura e critério de validação para QA.
+Atributos de qualidade do sistema, mensuráveis. Input para arquitetura e critério de validação para QA. Sem número/unidade/condição, não é NFR.
 
 ## Layout de Documentação
 
 ```markdown
-# Requisitos Não-Funcionais — <nome do épico>
+# Requisitos Não-Funcionais — <épico>
+Status: draft | approved | deprecated · Owner: requirements · Updated: YYYY-MM-DD
+Inputs: <artefatos usados>
 
-Status: draft | approved | deprecated
-Owner: requirements
-Last updated: YYYY-MM-DD
+| ID | Atributo | Requisito (mensurável) | Como medir |
+|----|----------|------------------------|-----------|
+| NFR-001 | Performance | <ex.: p95 < 300ms sob <condição>> | <método/fonte> |
+| NFR-002 | Segurança | ... | ... |
+| NFR-003 | Escalabilidade | ... | ... |
+| NFR-004 | Disponibilidade | ... | ... |
 
-## Inputs
-- <arquivos utilizados>
-
-## Performance
-- ...
-
-## Segurança
-- ...
-
-## Escalabilidade
-- ...
-
-## Disponibilidade
-- ...
+Atributos conforme o caso: performance, segurança, escalabilidade,
+disponibilidade, usabilidade, observabilidade, conformidade, portabilidade.
 ```
 
 ## Caminho do Arquivo
