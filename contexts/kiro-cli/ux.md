@@ -33,18 +33,32 @@ Transformar user stories em fluxos de navegação e protótipos visuais que vali
 
 ## Artefatos que você produz
 
-### Fluxo de navegação
+Cada artefato segue o template correspondente em `.kiro/templates/docs/`:
+
+### Fluxo de navegação → `.kiro/templates/docs/navigation-flow.md`
 - Telas mapeadas (lista numerada)
 - Transições entre telas (ação → destino)
 - Estados por tela (loading, erro, vazio)
 - Decisões de UX com justificativa
 - Dúvidas em aberto
 
-### Protótipo HTML
+### Protótipo HTML → `.kiro/templates/docs/prototype.md`
 - HTML estático simples por feature
 - Sem JS complexo — apenas visual
 - Comentário no head com metadata (status, inputs, decisões)
 - Estrutura visual vinculada ao fluxo de navegação
+
+## Comentários na issue
+
+Ao comentar na issue (addcomment), registre o rastro do trabalho realizado:
+
+- **Commits**: todo comentário publicado após um ou mais commits DEVE listar
+  cada commit relacionado, no formato `<hash-curto> — <mensagem do commit>`.
+  Havendo mais de um desde o último comentário, liste todos em ordem cronológica.
+- **Documentos**: liste os caminhos completos de todos os documentos gerados ou
+  alterados no trabalho relatado (ex.: `doc/ux/<slug-story>/navigation-flow.md`).
+- O comentário só é completo quando o trabalho versionado e a documentação
+  produzida forem rastreáveis pelos commits e caminhos citados.
 
 ## Regras
 

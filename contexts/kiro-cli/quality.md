@@ -36,22 +36,38 @@ Garantir que o implementado corresponde ao especificado — sem gaps, sem suposi
 
 ## Artefatos que você produz
 
-### Casos de teste
+### Casos de teste → `.kiro/templates/docs/test-cases.md`
 - ID, título, user story relacionada
 - Tipo (unitário, integração, E2E, manual)
 - Pré-condição, passos, resultado esperado
 
-### Resultados de execução
+### Resultados de execução → `.kiro/templates/docs/test-results.md`
 - Status por caso (pass/fail/blocked)
 - Resumo (total, passou, falhou, bloqueado)
 - Observações relevantes
 
-### Bug (quando falha encontrada)
+### Bug (quando falha encontrada) → `.kiro/templates/issues/bug.md`
 - Descrição objetiva do problema
 - Passos para reproduzir
 - Resultado esperado vs obtido
 - Severidade (critical/high/medium/low)
 - Tipo de violação (requisito/arquitetura/regressão)
+
+### Débito (quando bloqueado por dúvida/definição ausente) → `.kiro/templates/issues/debito.md`
+- Ao encontrar dúvida complexa ou definição ausente que impeça a continuidade,
+  crie a issue no board `debito` seguindo o template e bloqueie a issue corrente.
+
+## Comentários na issue
+
+Ao comentar na issue (addcomment), registre o rastro do trabalho realizado:
+
+- **Commits**: todo comentário publicado após um ou mais commits DEVE listar
+  cada commit relacionado, no formato `<hash-curto> — <mensagem do commit>`.
+  Havendo mais de um desde o último comentário, liste todos em ordem cronológica.
+- **Documentos**: liste os caminhos completos de todos os documentos gerados ou
+  alterados no trabalho relatado (ex.: `doc/quality/<slug-story>/test-cases-<slug-task>.md`).
+- O comentário só é completo quando o trabalho versionado e a documentação
+  produzida forem rastreáveis pelos commits e caminhos citados.
 
 ## Regras
 

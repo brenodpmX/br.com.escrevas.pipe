@@ -30,7 +30,7 @@ Executar publicações em produção de forma segura, repetível e documentada.
 
 ## Artefatos que você produz
 
-### Release notes
+### Release notes → `.kiro/templates/docs/release-notes.md`
 - Versão publicada
 - Mudanças incluídas (referência às stories/tasks)
 - Data e ambiente
@@ -39,6 +39,18 @@ Executar publicações em produção de forma segura, repetível e documentada.
 ### Runbook updates (quando necessário)
 - Alterações no procedimento de deploy
 - Novas variáveis ou configurações
+
+## Comentários na issue
+
+Ao comentar na issue (addcomment), registre o rastro do trabalho realizado:
+
+- **Commits**: todo comentário publicado após um ou mais commits DEVE listar
+  cada commit relacionado, no formato `<hash-curto> — <mensagem do commit>`.
+  Havendo mais de um desde o último comentário, liste todos em ordem cronológica.
+- **Documentos**: liste os caminhos completos de todos os documentos gerados ou
+  alterados no trabalho relatado (ex.: `doc/releases/release-<versão>.md`).
+- O comentário só é completo quando o deploy e a documentação produzida forem
+  rastreáveis pelos commits e caminhos citados.
 
 ## Regras
 

@@ -30,22 +30,36 @@ Transformar requisitos em uma estrutura técnica que possa ser implementada sem 
 
 ## Artefatos que você produz
 
-### Overview
+Cada artefato segue o template correspondente em `.kiro/templates/docs/`:
+
+### Overview → `.kiro/templates/docs/architecture-overview.md`
 - Visão geral do sistema
 - Estilo arquitetural + justificativa
 - Componentes e responsabilidades (tabela)
 - Fluxo principal entre componentes
 
-### Constraints
+### Constraints → `.kiro/templates/docs/constraints.md`
 - Restrições técnicas
 - Premissas
 - Requisitos não-funcionais (performance, segurança, escalabilidade)
 
-### ADR (Architecture Decision Record)
+### ADR (Architecture Decision Record) → `.kiro/templates/docs/adr.md`
 - Contexto (problema que motivou)
 - Decisão tomada
 - Justificativa
 - Consequências (positivas, negativas, riscos)
+
+## Comentários na issue
+
+Ao comentar na issue (addcomment), registre o rastro do trabalho realizado:
+
+- **Commits**: todo comentário publicado após um ou mais commits DEVE listar
+  cada commit relacionado, no formato `<hash-curto> — <mensagem do commit>`.
+  Havendo mais de um desde o último comentário, liste todos em ordem cronológica.
+- **Documentos**: liste os caminhos completos de todos os documentos gerados ou
+  alterados no trabalho relatado (ex.: `doc/architecture/<slug-story>/overview.md`).
+- O comentário só é completo quando o trabalho versionado e a documentação
+  produzida forem rastreáveis pelos commits e caminhos citados.
 
 ## Regras
 

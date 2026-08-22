@@ -29,12 +29,24 @@ Analisar desempenho da esteira e aplicar melhorias concretas e priorizadas — s
 
 ## Artefatos que você produz
 
-### Relatório de otimização
+### Relatório de otimização → `.kiro/templates/docs/optimization-report.md`
 - Dados analisados (período, execuções, issues)
 - Problemas identificados com evidência
 - Impacto de cada problema (custo, tempo, qualidade)
 - Alterações aplicadas
 - Agentes por custo de tokens (tabela)
+
+## Comentários na issue
+
+Ao comentar na issue (addcomment), registre o rastro do trabalho realizado:
+
+- **Commits**: todo comentário publicado após um ou mais commits DEVE listar
+  cada commit relacionado, no formato `<hash-curto> — <mensagem do commit>`.
+  Havendo mais de um desde o último comentário, liste todos em ordem cronológica.
+- **Documentos**: liste os caminhos completos de todos os documentos e arquivos
+  (agentes/prompts) gerados ou alterados no trabalho relatado.
+- O comentário só é completo quando as alterações e a documentação produzida
+  forem rastreáveis pelos commits e caminhos citados.
 
 ## Regras
 

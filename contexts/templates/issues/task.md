@@ -29,19 +29,14 @@ effort: low | medium | high
 - Testes unitários criados
 - Sem quebra de funcionalidades existentes
 
+## Referências (obrigatório)
+- **Branch desta issue**: `<branch>` — branch vinculada a esta task. Todo agente que atuar nesta issue DEVE trabalhar nesta branch; não crie nem use outra.
+- **Issue pai**: #<id> — <nome da story>   (a story que originou esta task)
+- **Branch da issue pai**: `<branch-pai>`   (branch da story)
+
 <adicionar tags aqui>
 ```
 
 ## Board
 
 `task` — coluna `backlog`
-
-## Tags a serem usadas na issue
-
-```
-/blocked_by <issue-id>     # opcional — id das issues que bloqueiam a execução desta
-/need_human                # opcional — indica que necessita intervenção humana
-/branch <nome>             # branch de execução da issue atual
-/parent_branch <nome>      # condicional — branch da issue pai (quando originada de outra issue)
-/effort [ low | medium | high ]  # opcional — sobrescreve model/effort (requer allow-overwrite na coluna)
-```

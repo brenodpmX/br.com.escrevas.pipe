@@ -49,24 +49,55 @@ Antes de considerar uma demanda madura, você fecha quatro frentes:
 
 ## Artefatos
 
-### Visão de negócio
-- Problema central e quem é afetado
-- Proposta de valor e resultado esperado
-- Público-alvo
-- Métricas de sucesso
+Cada artefato tem um template que define o formato a seguir. Documentos ficam em
+`.kiro/templates/docs/`; issues em `.kiro/templates/issues/`. Use sempre o
+template correspondente à situação como base.
 
-### Espaço do problema
-- Situação atual
-- Problemas identificados e seu impacto
-- Custo de manter o cenário inalterado
-- Oportunidade e leitura de mercado
+### Análise de negócio do épico (coluna `analise-negocio`)
 
-### Definição do épico
-- Objetivo do investimento
-- Escopo (o que entra)
-- Fora de escopo (limites explícitos)
-- Premissas comprovadas x pontos ainda sem lastro
-- Riscos e escolhas de renúncia
+- **Visão de negócio** → `.kiro/templates/docs/vision.md`
+  - Problema central e quem é afetado
+  - Proposta de valor e resultado esperado
+  - Público-alvo
+  - Métricas de sucesso
+- **Espaço do problema** → `.kiro/templates/docs/problem-space.md`
+  - Situação atual
+  - Problemas identificados e seu impacto
+  - Custo de manter o cenário inalterado
+  - Oportunidade e leitura de mercado
+- **Definição do épico** → `.kiro/templates/docs/epicos.md`
+  - Objetivo do investimento
+  - Escopo (o que entra)
+  - Fora de escopo (limites explícitos)
+  - Premissas comprovadas x pontos ainda sem lastro
+  - Riscos e escolhas de renúncia
+- **Reescrita do corpo da issue do épico** → `.kiro/templates/issues/epic.md`
+
+### Registro de incidente (coluna `registro` do board incidente)
+
+- **Documento do incidente** → `.kiro/templates/docs/incidente.md`
+  - Nesta etapa preencha **apenas** o capítulo "Registro" e vincule o arquivo no
+    corpo da issue.
+
+### Débito negocial (coluna `product` do board débito)
+
+- Você é responsável por **sanar** débitos negociais — não por abri-los (a
+  abertura cabe a quem detecta o bloqueio, tipicamente tech-lead, QA ou
+  engenharia). Resolva a lacuna registrando a definição na documentação
+  pertinente (ex.: `vision.md`, `problem-space.md`, `epicos.md`), sem template
+  próprio de issue.
+
+## Comentários na issue
+
+Ao comentar na issue (addcomment), registre o rastro do trabalho realizado:
+
+- **Commits**: todo comentário publicado após um ou mais commits DEVE listar
+  cada commit relacionado, no formato `<hash-curto> — <mensagem do commit>`.
+  Havendo mais de um desde o último comentário, liste todos em ordem cronológica.
+- **Documentos**: liste os caminhos completos de todos os documentos gerados ou
+  alterados no trabalho relatado (ex.: `doc/product/<slug-epic>/vision.md`).
+- O comentário só é completo quando o trabalho versionado e a documentação
+  produzida forem rastreáveis pelos commits e caminhos citados.
 
 ## Regras
 

@@ -38,10 +38,24 @@ Não ambíguo · verificável/testável · completo (caminho feliz + exceções 
 
 ## Artefatos (em `doc/requirements/<slug-epic>/`)
 
-- **Requisitos funcionais** (`functional-requirements.md`): RF-XXX, atores, dados, fluxos principais/alternativos.
-- **Regras de negócio** (`business-rules.md`): RN-XXX com contexto e exceções.
-- **Requisitos não-funcionais** (`non-functional-requirements.md`): atributos mensuráveis.
-- **Glossário** (`glossary.md`, quando necessário): termos ambíguos padronizados.
+Cada artefato segue o template correspondente em `.kiro/templates/docs/`:
+
+- **Requisitos funcionais** → `.kiro/templates/docs/functional-requirements.md` — RF-XXX, atores, dados, fluxos principais/alternativos.
+- **Regras de negócio** → `.kiro/templates/docs/business-rules.md` — RN-XXX com contexto e exceções.
+- **Requisitos não-funcionais** → `.kiro/templates/docs/non-functional-requirements.md` — atributos mensuráveis.
+- **Glossário** (quando necessário) → `.kiro/templates/docs/glossary.md` — termos ambíguos padronizados.
+
+## Comentários na issue
+
+Ao comentar na issue (addcomment), registre o rastro do trabalho realizado:
+
+- **Commits**: todo comentário publicado após um ou mais commits DEVE listar
+  cada commit relacionado, no formato `<hash-curto> — <mensagem do commit>`.
+  Havendo mais de um desde o último comentário, liste todos em ordem cronológica.
+- **Documentos**: liste os caminhos completos de todos os documentos gerados ou
+  alterados no trabalho relatado (ex.: `doc/requirements/<slug-epic>/functional-requirements.md`).
+- O comentário só é completo quando o trabalho versionado e a documentação
+  produzida forem rastreáveis pelos commits e caminhos citados.
 
 ## Regras
 

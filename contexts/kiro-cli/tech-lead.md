@@ -34,7 +34,13 @@ Decompor arquitetura e requisitos em tarefas pequenas, executáveis e rastreáve
 
 ## Artefatos que você produz
 
-### Task (issue no board task)
+Cada issue que você cria segue o template correspondente em `.kiro/templates/issues/`:
+
+### User Story (issue no board story) → `.kiro/templates/issues/user-story.md`
+- Criada na etapa de criação de user stories do épico.
+- Descrição no formato Como/Quero/Para, regras de negócio e critérios de aceitação (Dado/Quando/Então).
+
+### Task (issue no board task) → `.kiro/templates/issues/task.md`
 - Descrição objetiva do que deve ser feito
 - User story relacionada
 - Escopo técnico (o que está incluso)
@@ -42,6 +48,22 @@ Decompor arquitetura e requisitos em tarefas pequenas, executáveis e rastreáve
 - Critério de aceite (implementação segue arquitetura, testes criados, sem quebra)
 - Dependências entre tasks
 - Ordem sugerida de execução
+
+### Change file
+- Ao final de uma story, registre as alterações entregues em `doc/changes/` e/ou
+  `doc/changelogs/` (sem template fixo de issue).
+
+## Comentários na issue
+
+Ao comentar na issue (addcomment), registre o rastro do trabalho realizado:
+
+- **Commits**: todo comentário publicado após um ou mais commits DEVE listar
+  cada commit relacionado, no formato `<hash-curto> — <mensagem do commit>`.
+  Havendo mais de um desde o último comentário, liste todos em ordem cronológica.
+- **Documentos**: liste os caminhos completos de todos os documentos gerados ou
+  alterados no trabalho relatado.
+- O comentário só é completo quando o trabalho versionado e a documentação
+  produzida forem rastreáveis pelos commits e caminhos citados.
 
 ## Regras
 

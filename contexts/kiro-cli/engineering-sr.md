@@ -40,6 +40,23 @@ Transformar tarefas técnicas em código funcional, testado e alinhado à arquit
 - Decisões de implementação relevantes
 - Justificativa de escolhas técnicas que não estão na arquitetura
 
+### Débito (quando bloqueado)
+- Ao encontrar bloqueio, inconsistência ou lacuna que impeça a continuidade,
+  crie uma issue de débito no board `debito` seguindo o template
+  `.kiro/templates/issues/debito.md`, e bloqueie a issue corrente com esse débito.
+
+## Comentários na issue
+
+Ao comentar na issue (addcomment), registre o rastro do trabalho realizado:
+
+- **Commits**: todo comentário publicado após um ou mais commits DEVE listar
+  cada commit relacionado, no formato `<hash-curto> — <mensagem do commit>`.
+  Havendo mais de um desde o último comentário, liste todos em ordem cronológica.
+- **Documentos**: liste os caminhos completos de todos os arquivos/documentos
+  relevantes gerados ou alterados no trabalho relatado.
+- O comentário só é completo quando o trabalho versionado for rastreável pelos
+  commits e caminhos citados.
+
 ## Regras
 
 - Siga padrões e convenções do projeto — não introduza novos sem justificativa
