@@ -186,7 +186,17 @@ boards:
         target-prompt: "Analisar o MR e verificar: boas práticas; padrões de arquitetura; code-smell; aderência ao solicitado; ausência de delírios; se compila; cobertura de testes conforme especificado; baixa complexidade/boa legibilidade. Se tudo estiver bem, aprove e conclua o merge e avance para advance. Se algum critério não passar, crie uma issue de bug no board 'bug' (coluna backlog) seguindo o template `.kiro/templates/issues/bug.md`, descrevendo o problema; preencha as Referências do bug com 'Issue original' = este epic e 'Branch original' = a branch deste epic; no corpo do bug anote '/blocks #<id deste epic>' para que o bug bloqueie este epic; adicione a label 'retrabalho' a este epic e avance para correcao. Obs.: Ao reanalisar a issue, não remova a tag retrabalho."
         change:
           correcao: aguardando-stories
-          advance: concluido
+          advance: report-negocial
+      report-negocial:
+        name: "Report Negocial"
+        agent: tech-lead
+        target-prompt: "Acabamos de enviar o Épico para produção, faça um report de tudo que foi implantado, melhorias, correções e novas funcionalidades, informe também débitos tecnicos que ficaram caso existam. Envie o report para o addcomment em linguagem exclusivamente negocial, evite linguagens tecnicas"
+        change:
+          advance: em-produção
+      em-produção:
+        name: "Em produção"
+        on_in: [need_human]
+        on_out: [-need_human]
       concluido:
         name: "Concluído"
         agent: generic
@@ -555,7 +565,7 @@ boards:
         name: "Documentação"
         agent: tech-lead
         gitevents: use
-        target-prompt: "Atualizar README, documentações públicas e change files, refletindo as mudanças entregues"
+        target-prompt: "Atualizar a versão, README, documentações públicas e change files, refletindo as mudanças entregues"
         change:
           advance: merge-request
       merge-request:
@@ -568,20 +578,24 @@ boards:
       code-review:
         name: "Code Review"
         agent: reviewer
-        target-prompt: "Analisar o MR e verificar: boas práticas; padrões de arquitetura; code-smell; aderência ao solicitado; ausência de delírios; se compila; cobertura de testes conforme especificado; baixa complexidade/boa legibilidade. Se tudo estiver bem, aprove e conclua o merge e avance para advance. Se algum critério não passar, crie uma issue de bug no board 'bug' (coluna backlog) seguindo o template `.kiro/templates/issues/bug.md`, descrevendo o problema; preencha as Referências do bug com 'Issue original' = este incidente e 'Branch original' = a branch deste incidente; no corpo do bug anote '/blocks #<id deste incidente>' para que o bug bloqueie este incidente; adicione a label 'retrabalho' a este incidente e avance para correcao. Obs.: Ao reanalisar a issue, não remova a tag retrabalho."
+        target-prompt: "Analisar o MR e verificar: boas práticas; padrões de arquitetura; code-smell; aderência ao solicitado; ausência de delírios; se compila; cobertura de testes conforme especificado; baixa complexidade/boa legibilidade. Se tudo estiver bem, aprove e conclua o merge e avance para advance. Se algum critério não passar, crie uma issue de bug no board 'bug' (coluna backlog) seguindo o template `.kiro/templates/issues/bug.md`, descrevendo o problema; preencha as Referências do bug com 'Issue original' = este epic e 'Branch original' = a branch deste epic; no corpo do bug anote '/blocks #<id deste epic>' para que o bug bloqueie este epic; adicione a label 'retrabalho' a este epic e avance para correcao. Obs.: Ao reanalisar a issue, não remova a tag retrabalho."
         change:
-          advance: publicacao
-          correcao: aguardando-tasks
-      publicacao:
-        name: "Publicação"
-        agent: devops
-        target-prompt: "Publicar em produção conforme runbook, atualizar variáveis e executar deploy. Documente a publicação seguindo o template `.kiro/templates/docs/release-notes.md`."
+          correcao: aguardando-stories
+          advance: report-negocial
+      report-negocial:
+        name: "Report Negocial"
+        agent: tech-lead
+        target-prompt: "Acabamos de enviar o Épico para produção, faça um report de tudo que foi implantado, melhorias, correções e novas funcionalidades, informe também débitos tecnicos que ficaram caso existam. Envie o report para o addcomment em linguagem exclusivamente negocial, evite linguagens tecnicas"
         change:
-          advance: concluido
+          advance: em-produção
+      em-produção:
+        name: "Em produção"
+        on_in: [need_human]
+        on_out: [-need_human]
       concluido:
         name: "Concluído"
         agent: generic
-        target-prompt: "# Incidente concluído\n\n- Crie no board `Epic` uma nova issue com o nome 'Post Mortem do incidente <nome do incidente>';\n- Adicione ao body do epic o seguinte conteúdo:\n\n``` markdown\n# Post Mortem do incidente <nome do incidente>\n\n## Descrição\n- Executar o rito de Post Mortem para o incidente <nome do incidente>;\n- Analisar os registros em `<path do arquivo do incidente>`;\n- Entrevistar usuário caso necessite;\n- Analisar código e logs caso necessite.\n- Seguir o mais próximo da metodologia possível.\n\n## Contexto\nO incidente <nome do incidente> foi aberto, tratado e concluído com sucesso de acordo com o issue <id do issue de tratamento do incidente>. Todos os dados colhidos foram salvos no arquivo <path do arquivo do incidente> com o seguinte resumo:\n\n<resumo do capitulo Registro do incidente>\n\n## Resultado esperado\nEntender o que aconteceu, por que aconteceu e propor mudanças para evitar que aconteça novamente.\n```\n- Vasculhe todas as issues procurando /blocked_by com o numero e ou nome desta issue e remova a tag;\n- Comente na issue desbloqueada, qual issue removeu o bloqueio;\n-Ao concluir avance esta issue para advance"
+        target-prompt: "Remova desta issue todas as relações de bloqueio existente e avance para advance"
         change:
           advance: encerrado
       cancelado:
