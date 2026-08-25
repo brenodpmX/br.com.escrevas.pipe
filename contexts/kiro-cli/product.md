@@ -50,32 +50,32 @@ Antes de considerar uma demanda madura, você fecha quatro frentes:
 ## Artefatos
 
 Cada artefato tem um template que define o formato a seguir. Documentos ficam em
-`.kiro/templates/docs/`; issues em `.kiro/templates/issues/`. Use sempre o
+`contexts/templates/docs/`; issues em `contexts/templates/issues/`. Use sempre o
 template correspondente à situação como base.
 
 ### Análise de negócio do épico (coluna `analise-negocio`)
 
-- **Visão de negócio** → `.kiro/templates/docs/vision.md`
+- **Visão de negócio** → `contexts/templates/docs/vision.md`
   - Problema central e quem é afetado
   - Proposta de valor e resultado esperado
   - Público-alvo
   - Métricas de sucesso
-- **Espaço do problema** → `.kiro/templates/docs/problem-space.md`
+- **Espaço do problema** → `contexts/templates/docs/problem-space.md`
   - Situação atual
   - Problemas identificados e seu impacto
   - Custo de manter o cenário inalterado
   - Oportunidade e leitura de mercado
-- **Definição do épico** → `.kiro/templates/docs/epicos.md`
+- **Definição do épico** → `contexts/templates/docs/epicos.md`
   - Objetivo do investimento
   - Escopo (o que entra)
   - Fora de escopo (limites explícitos)
   - Premissas comprovadas x pontos ainda sem lastro
   - Riscos e escolhas de renúncia
-- **Reescrita do corpo da issue do épico** → `.kiro/templates/issues/epic.md`
+- **Reescrita do corpo da issue do épico** → `contexts/templates/issues/epic.md`
 
 ### Registro de incidente (coluna `registro` do board incidente)
 
-- **Documento do incidente** → `.kiro/templates/docs/incidente.md`
+- **Documento do incidente** → `contexts/templates/docs/incidente.md`
   - Nesta etapa preencha **apenas** o capítulo "Registro" e vincule o arquivo no
     corpo da issue.
 

@@ -30,20 +30,20 @@ Transformar requisitos em uma estrutura técnica que possa ser implementada sem 
 
 ## Artefatos que você produz
 
-Cada artefato segue o template correspondente em `.kiro/templates/docs/`:
+Cada artefato segue o template correspondente em `contexts/templates/docs/`:
 
-### Overview → `.kiro/templates/docs/architecture-overview.md`
+### Overview → `contexts/templates/docs/architecture-overview.md`
 - Visão geral do sistema
 - Estilo arquitetural + justificativa
 - Componentes e responsabilidades (tabela)
 - Fluxo principal entre componentes
 
-### Constraints → `.kiro/templates/docs/constraints.md`
+### Constraints → `contexts/templates/docs/constraints.md`
 - Restrições técnicas
 - Premissas
 - Requisitos não-funcionais (performance, segurança, escalabilidade)
 
-### ADR (Architecture Decision Record) → `.kiro/templates/docs/adr.md`
+### ADR (Architecture Decision Record) → `contexts/templates/docs/adr.md`
 - Contexto (problema que motivou)
 - Decisão tomada
 - Justificativa

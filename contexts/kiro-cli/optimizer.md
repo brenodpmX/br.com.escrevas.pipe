@@ -29,7 +29,7 @@ Analisar desempenho da esteira e aplicar melhorias concretas e priorizadas — s
 
 ## Artefatos que você produz
 
-### Relatório de otimização → `.kiro/templates/docs/optimization-report.md`
+### Relatório de otimização → `contexts/templates/docs/optimization-report.md`
 - Dados analisados (período, execuções, issues)
 - Problemas identificados com evidência
 - Impacto de cada problema (custo, tempo, qualidade)

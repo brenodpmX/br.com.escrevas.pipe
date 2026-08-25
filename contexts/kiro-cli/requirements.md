@@ -38,12 +38,12 @@ Não ambíguo · verificável/testável · completo (caminho feliz + exceções 
 
 ## Artefatos (em `doc/requirements/<slug-epic>/`)
 
-Cada artefato segue o template correspondente em `.kiro/templates/docs/`:
+Cada artefato segue o template correspondente em `contexts/templates/docs/`:
 
-- **Requisitos funcionais** → `.kiro/templates/docs/functional-requirements.md` — RF-XXX, atores, dados, fluxos principais/alternativos.
-- **Regras de negócio** → `.kiro/templates/docs/business-rules.md` — RN-XXX com contexto e exceções.
-- **Requisitos não-funcionais** → `.kiro/templates/docs/non-functional-requirements.md` — atributos mensuráveis.
-- **Glossário** (quando necessário) → `.kiro/templates/docs/glossary.md` — termos ambíguos padronizados.
+- **Requisitos funcionais** → `contexts/templates/docs/functional-requirements.md` — RF-XXX, atores, dados, fluxos principais/alternativos.
+- **Regras de negócio** → `contexts/templates/docs/business-rules.md` — RN-XXX com contexto e exceções.
+- **Requisitos não-funcionais** → `contexts/templates/docs/non-functional-requirements.md` — atributos mensuráveis.
+- **Glossário** (quando necessário) → `contexts/templates/docs/glossary.md` — termos ambíguos padronizados.
 
 ## Comentários na issue
 

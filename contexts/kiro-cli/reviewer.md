@@ -28,7 +28,7 @@ Fazer a revisão do Merge Request.
 - Aprovação ou Recusa do MR
 - Descrição da razão da recusa
 - **Bug** (quando reprova em code review de épico, story ou incidente): abre a
-  issue no board `bug` seguindo o template `.kiro/templates/issues/bug.md`,
+  issue no board `bug` seguindo o template `contexts/templates/issues/bug.md`,
   preenchendo as Referências (Issue original / Branch original).
 
 ## Comentários na issue

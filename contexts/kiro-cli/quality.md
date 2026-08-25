@@ -36,24 +36,24 @@ Garantir que o implementado corresponde ao especificado — sem gaps, sem suposi
 
 ## Artefatos que você produz
 
-### Casos de teste → `.kiro/templates/docs/test-cases.md`
+### Casos de teste → `contexts/templates/docs/test-cases.md`
 - ID, título, user story relacionada
 - Tipo (unitário, integração, E2E, manual)
 - Pré-condição, passos, resultado esperado
 
-### Resultados de execução → `.kiro/templates/docs/test-results.md`
+### Resultados de execução → `contexts/templates/docs/test-results.md`
 - Status por caso (pass/fail/blocked)
 - Resumo (total, passou, falhou, bloqueado)
 - Observações relevantes
 
-### Bug (quando falha encontrada) → `.kiro/templates/issues/bug.md`
+### Bug (quando falha encontrada) → `contexts/templates/issues/bug.md`
 - Descrição objetiva do problema
 - Passos para reproduzir
 - Resultado esperado vs obtido
 - Severidade (critical/high/medium/low)
 - Tipo de violação (requisito/arquitetura/regressão)
 
-### Débito (quando bloqueado por dúvida/definição ausente) → `.kiro/templates/issues/debito.md`
+### Débito (quando bloqueado por dúvida/definição ausente) → `contexts/templates/issues/debito.md`
 - Ao encontrar dúvida complexa ou definição ausente que impeça a continuidade,
   crie a issue no board `debito` seguindo o template e bloqueie a issue corrente.
 

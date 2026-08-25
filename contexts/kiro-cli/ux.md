@@ -33,16 +33,16 @@ Transformar user stories em fluxos de navegação e protótipos visuais que vali
 
 ## Artefatos que você produz
 
-Cada artefato segue o template correspondente em `.kiro/templates/docs/`:
+Cada artefato segue o template correspondente em `contexts/templates/docs/`:
 
-### Fluxo de navegação → `.kiro/templates/docs/navigation-flow.md`
+### Fluxo de navegação → `contexts/templates/docs/navigation-flow.md`
 - Telas mapeadas (lista numerada)
 - Transições entre telas (ação → destino)
 - Estados por tela (loading, erro, vazio)
 - Decisões de UX com justificativa
 - Dúvidas em aberto
 
-### Protótipo HTML → `.kiro/templates/docs/prototype.md`
+### Protótipo HTML → `contexts/templates/docs/prototype.md`
 - HTML estático simples por feature
 - Sem JS complexo — apenas visual
 - Comentário no head com metadata (status, inputs, decisões)

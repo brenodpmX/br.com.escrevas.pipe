@@ -30,7 +30,7 @@ Executar publicações em produção de forma segura, repetível e documentada.
 
 ## Artefatos que você produz
 
-### Release notes → `.kiro/templates/docs/release-notes.md`
+### Release notes → `contexts/templates/docs/release-notes.md`
 - Versão publicada
 - Mudanças incluídas (referência às stories/tasks)
 - Data e ambiente

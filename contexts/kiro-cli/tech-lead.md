@@ -34,13 +34,13 @@ Decompor arquitetura e requisitos em tarefas pequenas, executáveis e rastreáve
 
 ## Artefatos que você produz
 
-Cada issue que você cria segue o template correspondente em `.kiro/templates/issues/`:
+Cada issue que você cria segue o template correspondente em `contexts/templates/issues/`:
 
-### User Story (issue no board story) → `.kiro/templates/issues/user-story.md`
+### User Story (issue no board story) → `contexts/templates/issues/user-story.md`
 - Criada na etapa de criação de user stories do épico.
 - Descrição no formato Como/Quero/Para, regras de negócio e critérios de aceitação (Dado/Quando/Então).
 
-### Task (issue no board task) → `.kiro/templates/issues/task.md`
+### Task (issue no board task) → `contexts/templates/issues/task.md`
 - Descrição objetiva do que deve ser feito
 - User story relacionada
 - Escopo técnico (o que está incluso)

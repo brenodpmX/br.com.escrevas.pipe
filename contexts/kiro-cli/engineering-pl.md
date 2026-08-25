@@ -43,7 +43,7 @@ Transformar tarefas técnicas em código funcional, testado e alinhado à arquit
 ### Débito (quando bloqueado)
 - Ao encontrar bloqueio, inconsistência ou lacuna que impeça a continuidade,
   crie uma issue de débito no board `debito` seguindo o template
-  `.kiro/templates/issues/debito.md`, e bloqueie a issue corrente com esse débito.
+  `contexts/templates/issues/debito.md`, e bloqueie a issue corrente com esse débito.
 
 ## Comentários na issue
 
