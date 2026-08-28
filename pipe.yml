@@ -419,12 +419,12 @@ boards:
     name: "Escrevas - Débitos"
     priority: 3
     # sem flow: branch de origem/correção vêm da issue (/parent_branch, /branch) — modelo dinâmico
-    todo: humano
+    todo: reportado
     columns:
-      humano:
-        name: "Humano"
-        on_in: [need_human]
-        on_out: [-need_human]
+      reportado:
+        name: "Reportado"
+        change:
+          advance: product
       product:
         name: "Débito negocial"
         agent: product
