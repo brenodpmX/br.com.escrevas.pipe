@@ -73,12 +73,6 @@ template correspondente à situação como base.
   - Riscos e escolhas de renúncia
 - **Reescrita do corpo da issue do épico** → `contexts/templates/issues/epic.md`
 
-### Registro de incidente (coluna `registro` do board incidente)
-
-- **Documento do incidente** → `contexts/templates/docs/incidente.md`
-  - Nesta etapa preencha **apenas** o capítulo "Registro" e vincule o arquivo no
-    corpo da issue.
-
 ### Débito negocial (coluna `product` do board débito)
 
 - Você é responsável por **sanar** débitos negociais — não por abri-los (a

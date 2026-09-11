@@ -1,3 +1,10 @@
+project:
+  name: "Escrevas"
+  summary: "Produto Escrevas — aplicação desenvolvida pela esteira agêntica (RESUMO A REFINAR PELO DONO)."
+  humans:
+    - name: Breno
+      role: "dono do produto; aprova negócio e homologa entregas"
+
 sleep: 1200
 
 log:
@@ -14,22 +21,26 @@ git:
 
     hotfix:
       prefix: hotfix
+      branch_pattern: "hotfix/<id>-<slug>"
       description: Usada para correção de bugs em produção
       create: main
       merge: main
 
     epic:
       prefix: epic
+      branch_pattern: "epic/<id>-<slug>"
       description: Branch para épicos — planejamento e documentação
       create: main
       merge: main
     story:
       prefix: story
+      branch_pattern: "story/<id>-<slug>"
       description: Branch para épicos — planejamento e documentação
       create: epic
       merge: epic
     feature:
       prefix: feature
+      branch_pattern: "feature/<id>-<slug>"
       description: Branch de feature de desenvolvimento
       create: epic
       merge: epic
@@ -67,12 +78,6 @@ agents:
     quality:
       name: Camila Rocha - Engenheira de Qualidade (QA)
       model: claude-sonnet-5
-    devops:
-      name: Felipe Nogueira - Engenheiro DevOps
-      model: claude-sonnet-5
-    optimizer:
-      name: Marina Vasconcelos - AI Engineering Specialist
-      model: claude-opus-5
     generic:
       name: Diego Santos - Analista de Operações
       model: claude-haiku-4.5
@@ -86,7 +91,7 @@ boards:
 
   epic:
     name: "Escrevas - Epics"
-    desc: 
+    desc: "Épicos: negócio → requisitos → prototipação → arquitetura → stories"
     todo: backlog
     priority: 1
     flow: epic
@@ -199,12 +204,14 @@ boards:
         on_out: [-need_human]
       concluido:
         name: "Concluído"
+        on_out: [completed]
         agent: generic
         target-prompt: "Remova desta issue todas as relações de bloqueio existente e avance para advance"
         change:
           advance: encerrado
       cancelado:
         name: "Cancelado"
+        on_out: [not_planned]
         agent: generic
         target-prompt: "- Mova todas as issues filhas desta para o cancelado de seu respectivo board;\n- Remova todas as relações de bloqueio desta issue;\n- Remova a branch local e no servidor;\n- Avance para advance."
         change:
@@ -217,6 +224,7 @@ boards:
   
   story:
     name: "Escrevas - User Stories"
+    desc: "User stories: planejamento técnico → tasks → integração"
     todo: backlog
     priority: 2
     flow: story
@@ -263,12 +271,14 @@ boards:
           correcao: aguardando-tasks
       concluido:
         name: "Concluído"
+        on_out: [completed]
         agent: generic
         target-prompt: "Remova desta issue todas as relações de bloqueio existente e avance para advance"
         change:
           advance: encerrado
       cancelado:
         name: "Cancelado"
+        on_out: [not_planned]
         agent: generic
         target-prompt: "- Mova todas as issues filhas desta para o cancelado de seu respectivo board;\n- Remova todas as relações de bloqueio desta issue;\n- Remova a branch local e no servidor;\n- Avance para advance."
         change:
@@ -280,6 +290,7 @@ boards:
 
   task:
     name: "Escrevas - Tasks"
+    desc: "Unidade de desenvolvimento: teste → dev → review"
     todo: backlog
     priority: 5
     flow: feature
@@ -339,12 +350,14 @@ boards:
           correcao: desenvolvimento
       concluido:
         name: "Concluído"
+        on_out: [completed]
         agent: generic
         target-prompt: "Remova desta issue todas as relações de bloqueio existente e avance para advance"
         change:
           advance: encerrado
       cancelado:
         name: "Cancelado"
+        on_out: [not_planned]
         agent: generic
         target-prompt: "- Mova todas as issues filhas desta para o cancelado de seu respectivo board;\n- Remova todas as relações de bloqueio desta issue;\n- Remova a branch local e no servidor;\n- Avance para advance."
         change:
@@ -356,6 +369,7 @@ boards:
 
   bug:
     name: "Escrevas - Bugs"
+    desc: "Defeitos achados em teste/review"
     todo: backlog
     priority: 4
     # sem flow: branch de origem/correção vêm das Referências da issue
@@ -400,12 +414,14 @@ boards:
           correcao: correcao
       concluido:
         name: "Concluído"
+        on_out: [completed]
         agent: generic
         target-prompt: "Remova desta issue todas as relações de bloqueio existente e avance para advance"
         change:
           advance: encerrado
       cancelado:
         name: "Cancelado"
+        on_out: [not_planned]
         agent: generic
         target-prompt: "- Mova todas as issues filhas desta para o cancelado de seu respectivo board;\n- Remova todas as relações de bloqueio desta issue;\n- Remova a branch local e no servidor;\n- Avance para advance."
         change:
@@ -417,6 +433,7 @@ boards:
 
   debito:
     name: "Escrevas - Débitos"
+    desc: "Lacunas de definição (negocial/arquitetural/humana)"
     priority: 3
     # sem flow: branch de origem/correção vêm da issue (/parent_branch, /branch) — modelo dinâmico
     todo: reportado
@@ -467,12 +484,14 @@ boards:
           correcao: humano
       concluido:
         name: "Concluído"
+        on_out: [completed]
         agent: generic
         target-prompt: "Remova desta issue todas as relações de bloqueio existente e avance para advance"
         change:
           advance: encerrado
       cancelado:
         name: "Cancelado"
+        on_out: [not_planned]
         agent: generic
         target-prompt: "- Mova todas as issues filhas desta para o cancelado de seu respectivo board;\n- Remova todas as relações de bloqueio desta issue;\n- Remova a branch local e no servidor;\n- Avance para advance."
         change:
@@ -484,6 +503,7 @@ boards:
 
   incidente:
     name: "Escrevas - Incidente"
+    desc: "Coordenação de incidente em produção"
     priority: 0
     flow: hotfix
     todo: reportado
@@ -594,12 +614,14 @@ boards:
         on_out: [-need_human]
       concluido:
         name: "Concluído"
+        on_out: [completed]
         agent: generic
         target-prompt: "Remova desta issue todas as relações de bloqueio existente e avance para advance"
         change:
           advance: encerrado
       cancelado:
         name: "Cancelado"
+        on_out: [not_planned]
         agent: generic
         target-prompt: "- Mova todas as issues filhas desta para o cancelado de seu respectivo board;\n- Remova todas as relações de bloqueio desta issue;\n- Remova a branch local e no servidor;\n- Avance para advance."
         change:
