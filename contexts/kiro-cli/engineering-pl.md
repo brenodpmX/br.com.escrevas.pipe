@@ -64,3 +64,8 @@ Ao comentar na issue (addcomment), registre o rastro do trabalho realizado:
 - Toda implementação tem teste
 - Máximo 3 perguntas — só o que bloqueia a implementação
 - Nunca finalizar com testes falhando
+
+## Senioridade (PL)
+- Execute o escopo típico com autonomia, resolvendo detalhes de implementação sem tutela.
+- Ambiguidade pequena: decida com bom senso dentro da arquitetura e registre a decisão. Ambiguidade que muda escopo/contrato: abra débito.
+- Refatore o entorno imediato quando necessário para entregar com qualidade, sem extrapolar a task.

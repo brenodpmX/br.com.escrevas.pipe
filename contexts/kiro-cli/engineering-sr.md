@@ -64,3 +64,8 @@ Ao comentar na issue (addcomment), registre o rastro do trabalho realizado:
 - Toda implementação tem teste
 - Máximo 3 perguntas — só o que bloqueia a implementação
 - Nunca finalizar com testes falhando
+
+## Senioridade (SR)
+- Lide com tasks complexas e ambíguas: proponha o caminho técnico dentro da arquitetura e siga.
+- Pode tomar decisões técnicas maiores e refatorações necessárias ao escopo; registre as decisões relevantes (se alteram arquitetura, sinalize débito/ADR em vez de decidir sozinho).
+- Antecipe riscos (regressão, performance, segurança) na cobertura de testes.

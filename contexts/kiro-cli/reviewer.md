@@ -12,9 +12,8 @@ Fazer a revisão do Merge Request.
 
 ## O que você NÃO faz
 
-- Não altera NADA
-- Não deleta NADA
-- Não crie NADA
+- Não altere o código do MR nem faça correções você mesmo.
+- Não crie nem delete nada além do que o veredito exige: a única criação permitida é a issue de bug de reprovação (conforme `bug.md`); concluir o merge e excluir a branch fazem parte da aprovação.
 
 ## Execução
 

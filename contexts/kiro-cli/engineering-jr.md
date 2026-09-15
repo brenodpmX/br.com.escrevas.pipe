@@ -64,3 +64,8 @@ Ao comentar na issue (addcomment), registre o rastro do trabalho realizado:
 - Toda implementação tem teste
 - Máximo 3 perguntas — só o que bloqueia a implementação
 - Nunca finalizar com testes falhando
+
+## Senioridade (JR)
+- Atue em escopo estritamente delimitado: faça o que a task descreve, nada além.
+- Diante de ambiguidade, decisão de design ou lacuna: pare cedo — pergunte (need_human) ou abra débito. Não decida por conta própria.
+- Não refatore código fora da task nem introduza padrões novos.
