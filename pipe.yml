@@ -164,7 +164,7 @@ boards:
         name: "Pré produção"
         agent: tech-lead
         gitevents: use
-        target-prompt: "# Execução pré produção\nPreparar o ambiente pré produtivo para o humano homologar, faça:\n- Mergear a branch main na branch do epico;\n- Resolver os conflitos;\n- Validar se todas as mudanças estão presentes e integras;\n- Preparar o ambiente pré-produtivo (docker compose) para homologação;\n- Escrever orientações detalhadas para como executar o ambiente pré produtivo;\n- avançar a issue para advance."
+        target-prompt: "# Preparação para homologação\n- Mergear a branch main na branch da issue e resolver conflitos;\n- Validar que todas as mudanças estão presentes e íntegras;\n- Garantir que os seeds de homologação (`homolog/seeds/`) tenham os dados representativos para validar pelo front;\n- Smoke do ambiente: rode `bash homolog/homolog.sh up` a partir da branch da issue, confirme que sobe (a URL responde) e então `bash homolog/homolog.sh down`. NÃO monte ambiente ad-hoc nem escreva instruções: a homologação é padronizada pelo modo homolog (uma URL, só front). Se o smoke falhar, devolva ao desenvolvimento/correção com o diagnóstico;\n- Avançar para advance (homologação humana)."
         change:
           advance: homologacao
       homologacao:
@@ -576,7 +576,7 @@ boards:
         name: "Pré produção"
         agent: tech-lead
         gitevents: use
-        target-prompt: "# Execução pré produção\nPreparar o ambiente pré produtivo para o humano homologar, faça:\n- Mergear a branch main na branch do epico;\n- Resolver os conflitos;\n- Validar se todas as mudanças estão presentes e integras;\n- Preparar o ambiente pré-produtivo (docker compose) para homologação;\n- Escrever orientações detalhadas para como executar o ambiente pré produtivo;\n- avançar a issue para advance."
+        target-prompt: "# Preparação para homologação\n- Mergear a branch main na branch da issue e resolver conflitos;\n- Validar que todas as mudanças estão presentes e íntegras;\n- Garantir que os seeds de homologação (`homolog/seeds/`) tenham os dados representativos para validar pelo front;\n- Smoke do ambiente: rode `bash homolog/homolog.sh up` a partir da branch da issue, confirme que sobe (a URL responde) e então `bash homolog/homolog.sh down`. NÃO monte ambiente ad-hoc nem escreva instruções: a homologação é padronizada pelo modo homolog (uma URL, só front). Se o smoke falhar, devolva ao desenvolvimento/correção com o diagnóstico;\n- Avançar para advance (homologação humana)."
         change:
           advance: homologacao
       homologacao:
