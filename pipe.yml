@@ -95,7 +95,7 @@ boards:
     todo: backlog
     priority: 5
     flow: epic
-    parallel: false
+    parallel: true
     columns:
       backlog:
         name: Backlog
