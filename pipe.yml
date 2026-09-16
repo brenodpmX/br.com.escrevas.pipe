@@ -383,20 +383,20 @@ boards:
       analise-tecnica:
         name: "Análise Técnica"
         agent: engineering-sr
-        target-prompt: "Analisar o bug reportado. A branch de origem e a de correção estão nas 'Referências' do corpo da issue (Branch original / /parent_branch e /branch). Se houver débito técnico ou negocial que bloqueie a correção, crie uma issue no board débito seguindo o template `contexts/templates/issues/debito.md`, detalhando o problema, adicione o id deste bug no corpo do débito e bloqueie o avanço deste bug. Se não houver impedimento e a correção estiver clara, elabore um plano de desenvolvimento e avance para advance."
+        target-prompt: "Analisar o bug reportado. A branch de origem e a de correção estão nas 'Referências' do corpo da issue (Branch original / /parent_branch e /branch). Reproduza o bug no ambiente de desenvolvimento a partir da branch de origem (`bash dev/dev.sh`) para confirmar o comportamento e a causa. Se houver débito técnico ou negocial que bloqueie a correção, crie uma issue no board débito seguindo o template `contexts/templates/issues/debito.md`, detalhando o problema, adicione o id deste bug no corpo do débito e bloqueie o avanço deste bug. Se não houver impedimento e a correção estiver clara, elabore um plano de desenvolvimento e avance para advance."
         change:
           advance: correcao
           cancelar: cancelado
       correcao:
         name: "Correção"
         agent: engineering-sr
-        target-prompt: "Corrija o bug garantindo que os testes existentes continuem passando. Git (execute explicitamente): faça checkout da branch de origem (Branch original / /parent_branch), crie ou atualize a branch de correção (/branch) a partir dela, aplique a correção e faça commit e push da branch de correção. NÃO mescle nesta etapa."
+        target-prompt: "Corrija o bug garantindo que os casos de teste existentes continuem passando. Valide a correção no ambiente de desenvolvimento, a partir da branch de correção (`bash dev/dev.sh`; após alterar código, `bash dev/dev.sh rebuild`), confirmando pelo frontend que o bug foi resolvido antes de prosseguir. Git (execute explicitamente): faça checkout da branch de origem (Branch original / /parent_branch), crie ou atualize a branch de correção (/branch) a partir dela, aplique a correção e faça commit e push da branch de correção. NÃO mescle nesta etapa."
         change:
           advance: reteste
       reteste:
         name: "Reteste"
         agent: quality
-        target-prompt: "Na branch de correção (/branch), reexecute os casos de teste e valide que o bug foi corrigido sem regressão. Registre os resultados seguindo o template `contexts/templates/docs/test-results.md`. Aprovado: avance para advance. Reprovado: avance para falha."
+        target-prompt: "Na branch de correção (/branch), reexecute os casos de teste no ambiente de QA com `bash qa/run.sh` e leia o veredito em `qa/runs/latest/result.json`. Valide que o bug foi corrigido e que não há regressão. Em caso de falha, NÃO pare em 'reprovado': analise a causa raiz usando `failed_test`, os logs em `logs/`, os artefatos em `artifacts/` e os pods de dados que seguem de pé (campo `access`). Registre o resultado e o diagnóstico seguindo o template `contexts/templates/docs/test-results.md`. Aprovado: avance para advance. Reprovado: avance para falha, com o diagnóstico do que ainda quebra.\n\nImportante: nesta coluna você NÃO altera código e NÃO cria nem altera caso de teste — apenas executa, diagnostica e roteia."
         change:
           advance: merge-request
           falha: correcao
