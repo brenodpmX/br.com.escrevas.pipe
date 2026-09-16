@@ -93,9 +93,9 @@ boards:
     name: "Escrevas - Epics"
     desc: "Épicos: negócio → requisitos → prototipação → arquitetura → stories"
     todo: backlog
-    priority: 1
+    priority: 5
     flow: epic
-    parallel: true
+    parallel: false
     columns:
       backlog:
         name: Backlog
@@ -226,8 +226,9 @@ boards:
     name: "Escrevas - User Stories"
     desc: "User stories: planejamento técnico → tasks → integração"
     todo: backlog
-    priority: 2
+    priority: 4
     flow: story
+    parallel: false
     columns:
       backlog:
         name: Backlog
@@ -292,7 +293,7 @@ boards:
     name: "Escrevas - Tasks"
     desc: "Unidade de desenvolvimento: teste → dev → review"
     todo: backlog
-    priority: 5
+    priority: 2
     flow: feature
     columns:
       backlog:
@@ -371,7 +372,7 @@ boards:
     name: "Escrevas - Bugs"
     desc: "Defeitos achados em teste/review"
     todo: backlog
-    priority: 4
+    priority: 0
     # sem flow: branch de origem/correção vêm das Referências da issue
     columns:
       backlog:
@@ -434,7 +435,7 @@ boards:
   debito:
     name: "Escrevas - Débitos"
     desc: "Lacunas de definição (negocial/arquitetural/humana)"
-    priority: 3
+    priority: 1
     # sem flow: branch de origem/correção vêm da issue (/parent_branch, /branch) — modelo dinâmico
     todo: reportado
     columns:
@@ -504,9 +505,10 @@ boards:
   incidente:
     name: "Escrevas - Incidente"
     desc: "Coordenação de incidente em produção"
-    priority: 0
+    priority: 3
     flow: hotfix
     todo: reportado
+    parallel: false
     columns:
       reportado:
         name: "Reportado"
