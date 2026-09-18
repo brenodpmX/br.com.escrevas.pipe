@@ -436,7 +436,6 @@ boards:
     name: "Escrevas - Débitos"
     desc: "Lacunas de definição (negocial/arquitetural/humana)"
     priority: 1
-    # sem flow: branch de origem/correção vêm da issue (/parent_branch, /branch) — modelo dinâmico
     todo: reportado
     columns:
       reportado:
