@@ -221,7 +221,6 @@ boards:
         on_in: [archive]
         on_out: [-archive]
   
-  
   story:
     name: "Escrevas - User Stories"
     desc: "User stories: planejamento técnico → tasks → integração"
@@ -445,7 +444,7 @@ boards:
       product:
         name: "Débito negocial"
         agent: product
-        target-prompt: "Sanar débito negocial: analise e resolva a lacuna de definição negocial solicitada. Se a resolução depender de definição humana, avance para humano; se depender de design ou arquitetura, avance para ux ou architecture. Git (execute explicitamente): faça checkout da branch de origem (/parent_branch), crie ou atualize a branch de correção (/branch) a partir dela, registre a definição na documentação pertinente e faça commit e push da branch de correção. Quando a informação estiver resolvida, avance para advance."
+        target-prompt: "Sanar débito negocial: analise e resolva a lacuna de definição negocial solicitada, você é o dono da especificação negocial e deve tomar a decisão a este respeito, acione o humano apenas em problemas que você não consiga tomar a decisão de maneira nenhuma; se depender de design ou arquitetura, avance para ux ou architecture. Git (execute explicitamente): faça checkout da branch de origem (/parent_branch), crie ou atualize a branch de correção (/branch) a partir dela, registre a definição na documentação pertinente e faça commit e push da branch de correção. Quando a informação estiver resolvida, avance para advance."
         change:
           advance: merge-request
           ux: ux
@@ -454,7 +453,7 @@ boards:
       ux:
         name: "Debito de Design"
         agent: ux
-        target-prompt: "Sanar débito de design: analise e resolva a lacuna de definição de design solicitada (ou o impacto de uma definição negocial no design). Se depender de definição negocial ou arquitetural, avance para product ou architecture. Git (execute explicitamente): faça checkout da branch de origem (/parent_branch), crie ou atualize a branch de correção (/branch) a partir dela, registre a definição na documentação pertinente e faça commit e push da branch de correção. Quando a informação estiver resolvida, avance para advance."
+        target-prompt: "Sanar débito de design: analise e resolva a lacuna de definição de design solicitada (ou o impacto de uma definição negocial no design), você é o dono da especificação de design e deve tomar a decisão a este respeito, acione o humano apenas em problemas que você não consiga tomar a decisão de maneira nenhuma. Se depender de definição negocial ou arquitetural, avance para product ou architecture. Git (execute explicitamente): faça checkout da branch de origem (/parent_branch), crie ou atualize a branch de correção (/branch) a partir dela, registre a definição na documentação pertinente e faça commit e push da branch de correção. Quando a informação estiver resolvida, avance para advance."
         change:
           advance: merge-request
           product: product
@@ -463,7 +462,7 @@ boards:
       architecture:
         name: "Debito Arquitetural"
         agent: architecture
-        target-prompt: "Sanar débito arquitetural: analise e resolva a lacuna de definição arquitetural solicitada (ou o impacto de definições negociais/design na arquitetura). Se depender de definição negocial ou de design, avance para product ou ux. Git (execute explicitamente): faça checkout da branch de origem (/parent_branch), crie ou atualize a branch de correção (/branch) a partir dela, registre a definição na documentação pertinente e faça commit e push da branch de correção. Quando a informação estiver resolvida, avance para advance."
+        target-prompt: "Sanar débito arquitetural: analise e resolva a lacuna de definição arquitetural solicitada (ou o impacto de definições negociais/design na arquitetura), você é o dono da especificação arquitetural e deve tomar a decisão a este respeito, acione o humano apenas em problemas que você não consiga tomar a decisão de maneira nenhuma. Se depender de definição negocial ou de design, avance para product ou ux. Git (execute explicitamente): faça checkout da branch de origem (/parent_branch), crie ou atualize a branch de correção (/branch) a partir dela, registre a definição na documentação pertinente e faça commit e push da branch de correção. Quando a informação estiver resolvida, avance para advance."
         change:
           advance: merge-request
           product: product
