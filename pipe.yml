@@ -449,7 +449,6 @@ boards:
           advance: merge-request
           ux: ux
           architecture: architecture
-          humano: humano
       ux:
         name: "Debito de Design"
         agent: ux
@@ -458,7 +457,6 @@ boards:
           advance: merge-request
           product: product
           architecture: architecture
-          humano: humano
       architecture:
         name: "Debito Arquitetural"
         agent: architecture
@@ -467,7 +465,6 @@ boards:
           advance: merge-request
           product: product
           ux: ux
-          humano: humano
       merge-request:
         name: "Merge Request"
         agent: generic
@@ -480,7 +477,7 @@ boards:
         target-prompt: "Analisar o MR e verificar se a definição/documentação resolve a lacuna de forma completa, consistente com as políticas e documentações existentes e sem contradições. Se estiver adequada, aprove e conclua o merge na branch de origem (/parent_branch) e avance para advance. Se não estiver, NÃO crie bug (trata-se de definição/política, não de código): anote o problema encontrado no comentário da issue e avance para correcao. Obs.: Ao reanalisar a issue, não remova a tag retrabalho."
         change:
           advance: concluido
-          correcao: humano
+          correcao: reportado
       concluido:
         name: "Concluído"
         on_out: [completed]
