@@ -22,7 +22,7 @@ Sinalização criada por um agente quando encontra bloqueio, inconsistência ou 
 <ação necessária para resolver>
 
 ## Referências (obrigatório)
-- **Branch desta issue**: `<branch>` — branch de correção do débito. Todo agente que atuar nesta issue DEVE trabalhar nesta branch; não crie nem use outra.
+- **Branch desta issue**: `(ainda não criada)` — NÃO preencha este campo ao criar o débito. A branch de correção é criada pela própria issue de débito, na primeira coluna do board `debito`, a partir da branch de origem/pai. Deixe sempre `(ainda não criada)` na criação.
 - **Issue pai**: #<id> — <nome da issue que originou o débito>   (a issue bloqueada por este débito)
 - **Branch da issue pai**: `<branch-pai>`   (branch de origem, sobre a qual a correção é aplicada)
 

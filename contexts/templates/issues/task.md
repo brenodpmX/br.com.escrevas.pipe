@@ -30,9 +30,9 @@ effort: low | medium | high
 - Sem quebra de funcionalidades existentes
 
 ## Referências (obrigatório)
-- **Branch desta issue**: `<branch>` — branch vinculada a esta task. Todo agente que atuar nesta issue DEVE trabalhar nesta branch; não crie nem use outra.
+- **Branch desta issue**: `(ainda não criada)` — NÃO preencha este campo ao criar a task. A branch de trabalho própria da task é criada pela própria task, na primeira coluna do board `task`, a partir da branch da issue pai. Deixe sempre `(ainda não criada)` na criação.
 - **Issue pai**: #<id> — <nome da story>   (a story que originou esta task)
-- **Branch da issue pai**: `<branch-pai>`   (branch da story)
+- **Branch da issue pai**: `<branch-pai>`   (branch de trabalho da story — origem de onde a branch da task nasce e para onde volta)
 
 <adicionar tags aqui>
 ```

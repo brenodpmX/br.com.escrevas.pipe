@@ -28,7 +28,7 @@ critical | high | medium | low
 requisito | arquitetura | regressão
 
 ## Referências (obrigatório)
-- **Branch desta issue**: `<branch>` — branch de correção do bug. Todo agente que atuar nesta issue DEVE trabalhar nesta branch; não crie nem use outra.
+- **Branch desta issue**: `(ainda não criada)` — NÃO preencha este campo ao criar o bug. A branch de correção é criada pela própria issue de bug, na primeira coluna do board `bug`, a partir da branch de origem/pai (Branch original). Deixe sempre `(ainda não criada)` na criação.
 - **Issue pai (Issue original)**: #<id> — <nome da issue que originou o bug>
 - **Branch da issue pai (Branch original)**: `<branch-pai>` — branch de origem sobre a qual a correção é aplicada e para a qual o MR será aberto.
 

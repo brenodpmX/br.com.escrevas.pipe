@@ -24,9 +24,9 @@ Para <objetivo>
 - ...
 
 ## Referências (obrigatório)
-- **Branch desta issue**: `<branch>` — branch vinculada a esta story. Todo agente que atuar nesta issue DEVE trabalhar nesta branch; não crie nem use outra.
+- **Branch desta issue**: `(ainda não criada)` — NÃO preencha este campo ao criar a story. A branch de trabalho própria da story é criada pela própria story, na primeira coluna do board `story`, a partir da branch da issue pai. Deixe sempre `(ainda não criada)` na criação.
 - **Issue pai**: #<id> — <nome do épico>   (o épico que originou esta story)
-- **Branch da issue pai**: `<branch-pai>`   (branch do épico)
+- **Branch da issue pai**: `<branch-pai>`   (branch de trabalho do épico — origem de onde a branch da story nasce e para onde volta)
 
 <adicionar tags aqui>
 ```

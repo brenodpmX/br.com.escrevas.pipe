@@ -19,7 +19,7 @@ Solicitação de origem humana que inicia o ciclo completo da esteira. É o nív
 <o que se espera ao final>
 
 ## Referências (obrigatório)
-- **Branch desta issue**: `<branch>` — branch vinculada a este épico. Todo agente que atuar nesta issue DEVE trabalhar nesta branch; não crie nem use outra.
+- **Branch desta issue**: `(ainda não criada)` — NÃO preencha este campo ao criar o épico. A branch de trabalho própria do épico é criada pelo próprio épico, na primeira coluna do board `epic`, a partir da branch da issue pai (ou de `main` quando não houver pai). Deixe sempre `(ainda não criada)` na criação.
 - **Issue pai**: #<id> — <nome da issue pai>   (use "nenhuma" quando for um épico de origem humana sem pai; preencha quando o épico nascer de outra issue, ex.: Post Mortem originado de incidente)
 - **Branch da issue pai**: `<branch-pai>`   (use "nenhuma" quando não houver issue pai)
 
