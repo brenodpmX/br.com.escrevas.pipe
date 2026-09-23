@@ -5,7 +5,7 @@ project:
     - name: Breno
       role: "dono do produto; aprova negócio e homologa entregas"
 
-sleep: 1200
+sleep: 300
 
 log:
   dir: logs
