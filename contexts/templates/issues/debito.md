@@ -4,18 +4,13 @@
 
 Sinalização criada por um agente quando encontra bloqueio, inconsistência ou falta de informação que impede sua continuidade. O débito é uma **dependência resolvida por outro agente** (negócio/design/arquitetura), que assume a decisão no board `debito`. Ao abrir um débito, bloqueie a issue de origem **apenas** pela relação de dependência de bloqueio (conforme a convenção do seu contexto); **não** adicione `/need_human` — o débito não aguarda um humano, e marcá-lo criaria uma espera humana redundante sobre um trabalho que é de outro agente. Use `/need_human` só na exceção em que a resolução exige, comprovadamente, decisão humana (débito destinado à coluna `humano`).
 
-## Quando abrir (e quando NÃO abrir)
+## Quando abrir
 
-Débito é **exclusivamente** para uma **lacuna de DEFINIÇÃO** que você não tem autoridade para criar: regra de negócio ausente, decisão de design não tomada, decisão arquitetural pendente. Nesses casos a resolução é de outro agente (product/ux/architecture), não sua.
+Apenas para lacuna de DEFINIÇÃO fora da autoridade de quem detectou: regra de negócio ausente, decisão de design ou arquitetural pendente. Resolução é de outro agente (product/ux/architecture).
 
-**NÃO abra débito para trabalho técnico que é do próprio engenheiro** — isso não é lacuna de definição, é o seu trabalho. Exemplos do que você deve RESOLVER, nunca virar débito:
+## Quando NÃO abrir
 
-- Não encontrar um commit na sua branch, resolver conflito de merge, acertar o histórico git
-- Subir o ambiente de desenvolvimento (`bash dev/dev.sh`) ou depurar por que ele não sobe
-- Ler e entender código existente, procurar um arquivo, investigar um erro
-- Escrever ou ajustar testes
-
-Se o problema é técnico e bem definido mas você não consegue resolvê-lo no seu nível, o caminho **não é débito**: é **escalar** para um engenheiro mais sênior (ver a persona de engenharia). Insegurança ou preguiça não são bloqueio.
+Trabalho técnico do próprio engenheiro não é débito — resolva: commit ausente, conflito de merge, histórico git, subir ambiente (`bash dev/dev.sh`), ler código, localizar arquivo, investigar erro, escrever/ajustar teste. Bloqueio técnico bem definido acima do seu nível: escale (ver persona de engenharia), não abra débito.
 
 ## Layout de Issue
 
