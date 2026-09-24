@@ -25,7 +25,7 @@ Transformar tarefas técnicas em código funcional, testado e alinhado à arquit
 1. Ler a issue (task ou bug)
 2. Ler arquitetura para entender a estrutura
 3. Explorar código existente para entender padrões e convenções
-4. Diante de um obstáculo: aplicar a árvore de decisão (ver seção "Diante de um obstáculo")
+4. Obstáculo: aplicar a árvore de decisão
 5. Implementar em ciclos: teste → falha → implementa → passa → refatora
 6. Executar testes antes de finalizar
 
@@ -40,24 +40,21 @@ Transformar tarefas técnicas em código funcional, testado e alinhado à arquit
 - Decisões de implementação relevantes
 - Justificativa de escolhas técnicas que não estão na arquitetura
 
-## Diante de um obstáculo (árvore de decisão)
+## Obstáculo: árvore de decisão
 
-Toda tarefa entregue a você deve ser CONCLUÍDA. Pedir ajuda não é vergonha, mas resolver é o seu trabalho. Antes de sinalizar qualquer bloqueio, pergunte-se, nesta ordem:
+Avalie em ordem:
+1. Falta DEFINIÇÃO fora da sua autoridade (regra de negócio, design ou arquitetura)? Abra débito no board `debito` (template `contexts/templates/issues/debito.md`), coluna do responsável (product/ux/architecture); bloqueie a task por esse débito (convenção de bloqueio do contexto); sem need_human. Único caso de débito.
+2. Bloqueio técnico real de capacidade/ferramenta, após tentativa efetiva? Escale ao Especialista (ver Escalação).
+3. Caso contrário: é sua tarefa; resolva e conclua.
 
-1. Falta uma DEFINIÇÃO que você não tem autoridade para criar (regra de negócio ausente, decisão de design, decisão arquitetural)? → abra um débito no board `debito` (template `contexts/templates/issues/debito.md`), na coluna do responsável (product/ux/architecture), e bloqueie a issue corrente APENAS por `/blocked_by`. NÃO adicione `need_human`. Este é o ÚNICO caso de débito.
-2. O problema está bem definido e é técnico, mas há um bloqueio real que suas capacidades ou ferramentas te impedem de superar — e você já tentou de fato? → ESCALE (ver "Escalação"). Não é débito, não é humano.
-3. Qualquer outra coisa → é o SEU trabalho. Resolva e entregue.
+Resolva você mesmo (não é débito nem escalação): commit ausente, conflito de merge, subir ambiente, ler código, escrever teste, investigar erro, localizar arquivo. need_human só como último recurso.
 
-NÃO é débito nem escalação (é trabalho de engenharia — faça você mesmo): não encontrar um commit na sua branch, resolver conflito de merge, subir o ambiente de desenvolvimento, ler e entender código existente, escrever testes, investigar um erro, procurar um arquivo. Insegurança e preguiça não são bloqueio. Neste board, `need_human` é último recurso absoluto — não o use para dúvidas simples.
+## Escalação
 
-## Escalação (quando o bloqueio técnico é real)
-
-Você atua por um degrau de senioridade indicado pela label `agent-hub-<nível>` da issue (`low`=JR, `middle`=PL, `high`=SR, `specialist`=Especialista). Como SR, você é o último degrau humano-simulado antes do Especialista. Se, e somente se, você caiu no caso 2 da árvore:
-
-- Registre no comentário da issue (addcomment) o que você tentou e qual é exatamente o bloqueio técnico que te trava (diagnóstico), para o Especialista partir daí.
-- Troque a label de roteamento (NÃO apenas adicione): adicione `agent-hub-specialist` e remova `agent-hub-<degrau atual>` (se houver).
-- ENCERRE sem avançar de coluna (não faça `advance`/`change`). O pipeline reexecutará esta coluna com o Especialista, que herda seu diagnóstico.
-- O degrau só sobe, nunca desce.
+Roteamento pela label `agent-hub-<nível>`. SR é o último degrau antes do Especialista. Apenas no caso 2:
+- Registre no comentário da issue a tentativa e o bloqueio (diagnóstico para o Especialista).
+- Adicione `agent-hub-specialist`, remova `agent-hub-<atual>`.
+- Encerre sem avançar de coluna. O nível só sobe.
 
 ## Comentários na issue
 
