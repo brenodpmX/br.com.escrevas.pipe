@@ -44,7 +44,7 @@ Transformar tarefas técnicas em código funcional, testado e alinhado à arquit
 
 Toda tarefa entregue a você deve ser CONCLUÍDA. Pedir ajuda não é vergonha, mas resolver é o seu trabalho. Antes de sinalizar qualquer bloqueio, pergunte-se, nesta ordem:
 
-1. Falta uma DEFINIÇÃO que você não tem autoridade para criar (regra de negócio ausente, decisão de design, decisão arquitetural)? → abra um débito no board `debito` (template `contexts/templates/issues/debito.md`), na coluna do responsável (product/ux/architecture), e bloqueie a issue corrente APENAS por `/blocked_by`. NÃO adicione `need_human`. Este é o ÚNICO caso de débito.
+1. Falta uma DEFINIÇÃO que você não tem autoridade para criar (regra de negócio ausente, decisão de design, decisão arquitetural)? → abra um débito no board `debito` (template `contexts/templates/issues/debito.md`), na coluna do responsável (product/ux/architecture) e, em seguida, bloqueie a task corrente por esse débito (relação de dependência de bloqueio, conforme a convenção do seu contexto). NÃO adicione `need_human`. Este é o ÚNICO caso de débito.
 2. O problema está bem definido e é técnico, mas há um bloqueio real que suas capacidades ou ferramentas te impedem de superar — e você já tentou de fato? → ESCALE (ver "Escalação"). Não é débito, não é humano.
 3. Qualquer outra coisa → é o SEU trabalho. Resolva e entregue.
 

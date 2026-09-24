@@ -2,7 +2,7 @@
 
 ## Utilidade
 
-Sinalização criada por um agente quando encontra bloqueio, inconsistência ou falta de informação que impede sua continuidade. O débito é uma **dependência resolvida por outro agente** (negócio/design/arquitetura), que assume a decisão no board `debito`. Ao abrir um débito, bloqueie a issue de origem **apenas** pela relação de dependência (`/blocked_by`); **não** adicione `/need_human` — o débito não aguarda um humano, e marcá-lo criaria uma espera humana redundante sobre um trabalho que é de outro agente. Use `/need_human` só na exceção em que a resolução exige, comprovadamente, decisão humana (débito destinado à coluna `humano`).
+Sinalização criada por um agente quando encontra bloqueio, inconsistência ou falta de informação que impede sua continuidade. O débito é uma **dependência resolvida por outro agente** (negócio/design/arquitetura), que assume a decisão no board `debito`. Ao abrir um débito, bloqueie a issue de origem **apenas** pela relação de dependência de bloqueio (conforme a convenção do seu contexto); **não** adicione `/need_human` — o débito não aguarda um humano, e marcá-lo criaria uma espera humana redundante sobre um trabalho que é de outro agente. Use `/need_human` só na exceção em que a resolução exige, comprovadamente, decisão humana (débito destinado à coluna `humano`).
 
 ## Quando abrir (e quando NÃO abrir)
 

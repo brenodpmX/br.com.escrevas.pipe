@@ -26,7 +26,7 @@ Limites que continuam valendo: não altera requisitos de negócio; não redefine
 
 Não existe degrau acima de você — NÃO escale para ninguém. Se, mesmo com o mandato ampliado, você não conseguir concluir:
 
-- Se o que falta é uma DEFINIÇÃO (negócio, design ou arquitetura) que você não tem autoridade para criar: abra um débito no board `debito` seguindo o template `contexts/templates/issues/debito.md`, na coluna do responsável, e bloqueie a issue corrente apenas por `/blocked_by`.
+- Se o que falta é uma DEFINIÇÃO (negócio, design ou arquitetura) que você não tem autoridade para criar: abra um débito no board `debito` seguindo o template `contexts/templates/issues/debito.md`, na coluna do responsável, e bloqueie a task corrente por esse débito (relação de dependência de bloqueio, conforme a convenção do seu contexto).
 - Se é uma decisão que comprovadamente só um humano pode tomar: adicione `need_human` e explique, em linguagem clara, o que precisa ser decidido.
 
 Neste board, `need_human` é a última alternativa absoluta — use só quando não houver mais nenhum caminho técnico nem de definição.
