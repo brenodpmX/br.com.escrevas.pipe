@@ -307,6 +307,8 @@ boards:
     columns:
       backlog:
         name: Backlog
+        on_in: [-agent-hub-high, -agent-hub-middle, -agent-hub-low]
+        on_out: [-agent-hub-high, -agent-hub-middle, -agent-hub-low]
         change:
           advance: planning-poker
           cancelar: cancelado
@@ -333,7 +335,7 @@ boards:
           high: engineering-sr
           specialist: engineering-specialist
         gitevents: use
-        target-prompt: "Analisar a issue;\n- Avaliar os casos de testes criados;\n- Quando possível executar TDD;\n- Desenvolver o código de acordo com o que foi solicitado;\n- Cobrir os novos códigos.\n- Suba o ambiente de desenvolvimento a partir da SUA branch com `bash dev/dev.sh` (após alterar código, aplique `bash dev/dev.sh rebuild`); confira o estado da stack em `dev/status.json`.\n- Teste CADA mudança nesse ambiente e valide, pelo frontend, que ela está de fato funcionando. NÃO avance sem ter validado a mudança no ambiente em execução.\n\nFaça exclusivamente o que foi pedido.\n\nObstáculo (árvore de decisão da persona):\n- Dúvida sobre caso de teste: avance para revisar-caso-de-teste.\n- Falta DEFINIÇÃO fora da sua autoridade (negócio/design/arquitetura): crie débito no board 'Débito' (template `contexts/templates/issues/debito.md`), coluna do responsável; bloqueie a task por esse débito (convenção de bloqueio do contexto); sem need_human.\n- Bloqueio técnico real acima do seu nível, após tentativa: escale (não abra débito). Registre no comentário a tentativa e o bloqueio; suba a label de roteamento (adicione agent-hub-<próximo>, remova agent-hub-<atual>: low->middle->high->specialist); encerre sem avançar. specialist é terminal: se não concluir, débito (se definição) ou, último recurso, need_human.\n- Demais dúvidas/dificuldades técnicas (commit, merge, ambiente, código, teste): resolva. need_human não é caminho para dúvida simples."
+        target-prompt: "Analisar a issue;\n- Avaliar os casos de testes criados;\n- Quando possível executar TDD;\n- Desenvolver o código de acordo com o que foi solicitado;\n- Cobrir os novos códigos;\n- Não adicione comentários ao código e se proximo à sua alteração houver comentários, remova-os.\n- Suba o ambiente de desenvolvimento a partir da SUA branch com `bash dev/dev.sh` (após alterar código, aplique `bash dev/dev.sh rebuild`); confira o estado da stack em `dev/status.json`.\n- Teste CADA mudança nesse ambiente e valide, pelo frontend, que ela está de fato funcionando. NÃO avance sem ter validado a mudança no ambiente em execução.\n\nFaça exclusivamente o que foi pedido.\n\nObstáculo (árvore de decisão da persona):\n- Dúvida sobre caso de teste: avance para revisar-caso-de-teste.\n- Falta DEFINIÇÃO fora da sua autoridade (negócio/design/arquitetura): crie débito no board 'Débito' (template `contexts/templates/issues/debito.md`), coluna do responsável; bloqueie a task por esse débito (convenção de bloqueio do contexto); sem need_human.\n- Bloqueio técnico real acima do seu nível, após tentativa: escale (não abra débito). Registre no comentário a tentativa e o bloqueio; suba a label de roteamento (adicione agent-hub-<próximo>, remova agent-hub-<atual>: low->middle->high->specialist); encerre sem avançar. specialist é terminal: se não concluir, débito (se definição) ou, último recurso, need_human.\n- Demais dúvidas/dificuldades técnicas (commit, merge, ambiente, código, teste): resolva. need_human não é caminho para dúvida simples."
         change:
           advance: execucao-testes
           revisar-caso-de-teste: casos-de-teste
