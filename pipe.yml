@@ -16,6 +16,9 @@ agent_circuit_break:    # teto de reexecuções por contexto (board, coluna, iss
   executions: 4         # N: bloqueia a 5ª execução no mesmo contexto
   window: 21600         # T: 6h (folga sobre o rerun_cooldown de 30min p/ não camuflar)
 
+registro:               # registros de execução em .pipe/executionRecords.json (#307)
+  retencao_dias: 180    # dias (inteiro > 0); ausente = sem expurgo automático
+
 git:
   repo:
     main: git@github.com:brenodpmX/br.com.escrevas.git
