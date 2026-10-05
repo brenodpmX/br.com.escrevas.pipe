@@ -209,7 +209,7 @@ boards:
           advance: code-review
       code-review:
         name: "Code Review"
-        agent: reviewer
+        agent: reviewer-sr
         target-prompt: "Analisar o MR e verificar: boas práticas; padrões de arquitetura; code-smell; aderência ao solicitado; ausência de delírios; se compila; cobertura de testes conforme especificado; baixa complexidade/boa legibilidade. Se tudo estiver bem, aprove e conclua o merge e avance para advance. Se algum critério não passar, crie uma issue de bug no board 'bug' (coluna backlog) seguindo o template `contexts/templates/issues/bug.md`, descrevendo o problema; preencha as Referências do bug com 'Issue original' = este epic e 'Branch original' = a branch deste epic; no corpo do bug anote '/blocks #<id deste epic>' para que o bug bloqueie este epic; adicione a label 'retrabalho' a este epic e avance para correcao. Obs.: Ao reanalisar a issue, não remova a tag retrabalho."
         change:
           correcao: aguardando-stories
@@ -286,7 +286,7 @@ boards:
           advance: code-review
       code-review:
         name: "Code Review"
-        agent: reviewer
+        agent: reviewer-sr
         target-prompt: "Analisar o MR e verificar: boas práticas; padrões de arquitetura; code-smell; aderência ao solicitado; ausência de delírios; se compila; cobertura de testes conforme especificado; baixa complexidade/boa legibilidade. Se tudo estiver bem, aprove e conclua o merge e avance para advance. Se algum critério não passar, crie uma issue de bug no board 'bug' (coluna backlog) seguindo o template `contexts/templates/issues/bug.md`, descrevendo o problema; preencha as Referências do bug com 'Issue original' = esta story e 'Branch original' = a branch desta story; no corpo do bug anote '/blocks #<id desta story>' para que o bug bloqueie esta story; adicione a label 'retrabalho' a esta story e avance para correcao. Obs.: Ao reanalisar a issue, não remova a tag retrabalho."
         change:
           advance: concluido
@@ -453,7 +453,7 @@ boards:
           advance: code-review
       code-review:
         name: "Code Review"
-        agent: reviewer
+        agent: reviewer-sr
         target-prompt: "Analisar o MR e verificar: boas práticas; padrões de arquitetura; code-smell; aderência ao solicitado; ausência de delírios; se compila; cobertura de testes conforme especificado; baixa complexidade/boa legibilidade. Se tudo estiver bem, aprove e conclua o merge na branch de origem (Branch original / /parent_branch) e exclua a branch de correção. Se algum critério não passar, adicione a label 'retrabalho', anote o problema e avance para correcao. Obs.: Ao reanalisar a issue, não remova a tag retrabalho."
         change:
           advance: concluido
@@ -520,7 +520,7 @@ boards:
           advance: code-review
       code-review:
         name: "Code Review"
-        agent: reviewer
+        agent: reviewer-sr
         target-prompt: "Analisar o MR e verificar se a definição/documentação resolve a lacuna de forma completa, consistente com as políticas e documentações existentes e sem contradições. Se estiver adequada, aprove e conclua o merge na branch de origem (/parent_branch) e avance para advance. Se não estiver, NÃO crie bug (trata-se de definição/política, não de código): anote o problema encontrado no comentário da issue e avance para correcao. Obs.: Ao reanalisar a issue, não remova a tag retrabalho."
         change:
           advance: concluido
@@ -641,7 +641,7 @@ boards:
           advance: code-review
       code-review:
         name: "Code Review"
-        agent: reviewer
+        agent: reviewer-sr
         target-prompt: "Analisar o MR e verificar: boas práticas; padrões de arquitetura; code-smell; aderência ao solicitado; ausência de delírios; se compila; cobertura de testes conforme especificado; baixa complexidade/boa legibilidade. Se tudo estiver bem, aprove e conclua o merge e avance para advance. Se algum critério não passar, crie uma issue de bug no board 'bug' (coluna backlog) seguindo o template `contexts/templates/issues/bug.md`, descrevendo o problema; preencha as Referências do bug com 'Issue original' = este incidente e 'Branch original' = a branch deste incidente; no corpo do bug anote '/blocks #<id deste incidente>' para que o bug bloqueie este incidente; adicione a label 'retrabalho' a este incidente e avance para correcao. Obs.: Ao reanalisar a issue, não remova a tag retrabalho."
         change:
           correcao: aguardando-tasks
