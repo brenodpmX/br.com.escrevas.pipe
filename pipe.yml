@@ -85,9 +85,12 @@ agents:
     engineering-jr:
       name: Laura Azevedo - Engenheira de Software JR
       model: claude-haiku-4.5
-    quality:
+    quality-sr:
       name: Camila Rocha - Engenheira de Qualidade (QA)
       model: claude-sonnet-5
+    quality-pl:
+      name: André Tavares - Engenheiro de Qualidade (QA)
+      model: auto
     generic:
       name: Diego Santos - Analista de Operações
       model: claude-haiku-4.5
@@ -321,7 +324,10 @@ boards:
           advance: casos-de-teste
       casos-de-teste:
         name: "Casos de Teste"
-        agent: quality
+        agent: quality-pl
+        agent-hub:
+          middle: quality-pl
+          high: quality-sr
         gitevents: create
         target-prompt: "Analisar a issue e trabalhar EXCLUSIVAMENTE no assunto que ela trata.\n- Avaliar os casos de teste já existentes para este assunto.\n- Criar/ajustar os casos de teste na NOVA estrutura de QA, no repositório de código, em `qa/tests/specs/`: specs de Playwright que interagem EXCLUSIVAMENTE pelo frontend, um caso por arquivo, nomeados com prefixo numérico de ordem (`NNN-*.spec.ts`). Siga as convenções em `qa/README.md` e o template `contexts/templates/docs/e2e-test-cases.md`.\n- Evite a todo custo SQL ou chamadas diretas ao backend; só quando for realmente inevitável, use os seeds de exceção em `qa/seeds/db/` (SQL) ou `qa/seeds/backend/` (request à API), ordenados por prefixo — nunca dentro do spec.\n- Migração: se houver caso de teste deste MESMO assunto criado em estrutura antiga (ex.: documento em `doc/quality/` ou qualquer coisa fora de `qa/tests/`), traga-o para a nova estrutura (convertendo em spec) e remova o antigo. Faça isso APENAS para o assunto tratado nesta issue, não para outros.\n\nFaça exclusivamente o que foi pedido.\n\nObstáculo:\n- Falta DEFINIÇÃO fora da sua autoridade (negócio/design/arquitetura): crie débito no board 'Débito' (template `contexts/templates/issues/debito.md`), coluna do responsável; bloqueie a task por esse débito (convenção de bloqueio do contexto); sem need_human.\n- Demais dúvidas de QA (entender o assunto, escrever/ajustar specs, subir ambiente): resolva. need_human é último recurso, não serve para dúvida simples."
         change:
@@ -341,7 +347,10 @@ boards:
           revisar-caso-de-teste: casos-de-teste
       execucao-testes:
         name: "Execução de Testes"
-        agent: quality
+        agent: quality-pl
+        agent-hub:
+          middle: quality-pl
+          high: quality-sr
         gitevents: use
         target-prompt: "Executar e homologar os casos de teste do desenvolvimento no ambiente de QA.\n- Rodar `bash qa/run.sh` (sobe a stack, aplica seeds e executa os specs de frontend em ordem, com fail-stop).\n- Ler o veredito em `qa/runs/latest/result.json`.\n- Se tudo passar: avançar para advance.\n- Se falhar, NÃO pare em 'reprovado': ANALISE a causa raiz usando `failed_test`, os logs em `logs/`, os artefatos em `artifacts/` (trace/screenshot/vídeo) e os pods de dados que seguem de pé (campo `access`) — inspecione banco, mensageria e e-mails (mailpit) conforme necessário.\n- Classifique a falha (lembre: o caso de teste é escrito ANTES de existir código, então nem toda falha é do código):\n  - Se o CÓDIGO não atende ao comportamento esperado: avançar para falha (volta ao desenvolvimento), registrando o diagnóstico do que quebrou e por quê.\n  - Se o CASO DE TESTE está errado, desatualizado ou ambíguo (e não o código): devolver ao QA avançando para revisar-caso-de-teste, explicando o que precisa ser corrigido no caso.\n- Registrar o resultado e o diagnóstico (com a classificação acima) seguindo o template `contexts/templates/docs/test-results.md`.\n\nImportante: nesta coluna você NÃO altera código e NÃO cria nem altera caso de teste — apenas executa, diagnostica a causa raiz e roteia."
         change:
@@ -413,7 +422,7 @@ boards:
           advance: reteste
       reteste:
         name: "Reteste"
-        agent: quality
+        agent: quality-sr
         target-prompt: "Na branch de correção (/branch), reexecute os casos de teste no ambiente de QA com `bash qa/run.sh` e leia o veredito em `qa/runs/latest/result.json`. Valide que o bug foi corrigido e que não há regressão. Em caso de falha, NÃO pare em 'reprovado': analise a causa raiz usando `failed_test`, os logs em `logs/`, os artefatos em `artifacts/` e os pods de dados que seguem de pé (campo `access`). Registre o resultado e o diagnóstico seguindo o template `contexts/templates/docs/test-results.md`. Aprovado: avance para advance. Reprovado: avance para falha, com o diagnóstico do que ainda quebra.\n\nImportante: nesta coluna você NÃO altera código e NÃO cria nem altera caso de teste — apenas executa, diagnostica e roteia."
         change:
           advance: merge-request
