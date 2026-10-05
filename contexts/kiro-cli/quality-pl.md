@@ -90,4 +90,3 @@ Ao comentar na issue (addcomment), registre o rastro do trabalho realizado:
 - Executa o ciclo completo de QA com autonomia: cria casos a partir dos critérios de aceitação (etapa casos-de-teste) e executa/homologa (etapa execução-testes).
 - Faz análise de causa raiz nas falhas e classifica com segurança: erro de CÓDIGO → falha (volta ao desenvolvimento); erro do CASO DE TESTE → revisar-caso-de-teste.
 - Ambiguidade pequena: decide com bom senso, dentro dos critérios de aceitação e da arquitetura, e registra a decisão. Ambiguidade que muda escopo/contrato do teste: abre débito.
-- Recebe escalações do nível JR: ao assumir uma execução escalada, faça o diagnóstico que o JR não concluiu.

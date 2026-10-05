@@ -88,6 +88,6 @@ Ao comentar na issue (addcomment), registre o rastro do trabalho realizado:
 
 ## Senioridade (SR)
 - Topo da escada de QA. Faz a análise de causa raiz mais profunda: correlaciona `failed_test`, logs, artefatos (trace/screenshot/vídeo) e os pods de dados de pé (banco, mensageria, mailpit), inclusive para regressões e violações arquiteturais.
-- Autoridade terminal de QA: decide a classificação nos casos ambíguos (código vs caso de teste) e recebe as escalações do nível PL, concluindo o diagnóstico que não foi fechado.
+- Autoridade terminal de QA: é o nível acionado nos casos de maior complexidade (rung `high` na criação de casos) e no reteste de bugs; decide a classificação nos casos ambíguos (código vs caso de teste).
 - Pode propor ajustes estruturais na suíte ou na estratégia de teste quando necessário para a qualidade, sem extrapolar o escopo da issue.
 - Se, mesmo no topo, faltar DEFINIÇÃO fora da sua autoridade: abra débito. need_human só como último recurso.

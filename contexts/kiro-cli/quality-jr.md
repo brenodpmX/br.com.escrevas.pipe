@@ -90,6 +90,6 @@ Ao comentar na issue (addcomment), registre o rastro do trabalho realizado:
 - Atue SOMENTE na etapa de execução de testes já criados (coluna Execução de Testes). Não cria nem altera casos de teste; não altera código.
 - Fluxo: rode `bash qa/run.sh`, leia o veredito em `qa/runs/latest/result.json`.
   - Verde (tudo passou): avance.
-  - Vermelho: se a causa for inequívoca só pelo veredito (ex.: `failed_test` explícito e óbvio), roteie direto — erro de CÓDIGO → falha; erro do CASO DE TESTE → revisar-caso-de-teste.
-  - Vermelho com causa não trivial (exige inspeção profunda de logs/artefatos/pods de dados): NÃO diagnostique por conta própria. Escale um nível (adicione `agent-hub-middle`, removendo `agent-hub-low` se existir), registre no comentário o veredito bruto e o que já inspecionou, e encerre sem avançar. O nível PL/SR faz a causa raiz.
-- Diante de qualquer ambiguidade ou dúvida de classificação: pare cedo e escale; não decida por conta própria.
+  - Vermelho: classifique e roteie VOCÊ MESMO, sem escalar — erro de CÓDIGO (o comportamento esperado não foi atendido) → falha (volta ao desenvolvimento), registrando o diagnóstico; erro do CASO DE TESTE (spec errado, desatualizado ou ambíguo) → revisar-caso-de-teste.
+  - Na dúvida entre os dois, prefira falha (desenvolvimento) com o seu diagnóstico. Encontrar bug é o fluxo normal e segue para o dev — NÃO é bloqueio nem motivo de escalonamento.
+- Não escale por teste reprovado. Só se você REALMENTE não conseguir EXECUTAR a suíte (ambiente/ferramenta quebrados), após tentativa efetiva, registre o bloqueio; need_human apenas como último recurso.
