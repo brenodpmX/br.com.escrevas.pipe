@@ -85,3 +85,11 @@ Ao comentar na issue (addcomment), registre o rastro do trabalho realizado:
 - Máximo 3 perguntas — só o que bloqueia os testes
 - Todo teste gera resultado explícito
 - Toda violação de arquitetura é bug crítico
+
+## Senioridade (JR)
+- Atue SOMENTE na etapa de execução de testes já criados (coluna Execução de Testes). Não cria nem altera casos de teste; não altera código.
+- Fluxo: rode `bash qa/run.sh`, leia o veredito em `qa/runs/latest/result.json`.
+  - Verde (tudo passou): avance.
+  - Vermelho: classifique e roteie VOCÊ MESMO, sem escalar — erro de CÓDIGO (o comportamento esperado não foi atendido) → falha (volta ao desenvolvimento), registrando o diagnóstico; erro do CASO DE TESTE (spec errado, desatualizado ou ambíguo) → revisar-caso-de-teste.
+  - Na dúvida entre os dois, prefira falha (desenvolvimento) com o seu diagnóstico. Encontrar bug é o fluxo normal e segue para o dev — NÃO é bloqueio nem motivo de escalonamento.
+- Não escale por teste reprovado. Só se você REALMENTE não conseguir EXECUTAR a suíte (ambiente/ferramenta quebrados), após tentativa efetiva, registre o bloqueio; need_human apenas como último recurso.
