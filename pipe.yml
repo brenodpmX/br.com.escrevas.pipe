@@ -19,6 +19,9 @@ agent_circuit_break:    # teto de reexecuções por contexto (board, coluna, iss
 registro:               # registros de execução em .pipe/executionRecords.json (#307)
   retencao_dias: 180    # dias (inteiro > 0); ausente = sem expurgo automático
 
+safety:                 # contingência de operador (#310), relida do disco a cada vínculo
+  cross_board_parent_links: enabled   # enabled (padrão) | suspended: recusa NOVOS vínculos pai/filho entre quadros distintos
+
 git:
   repo:
     main: git@github.com:brenodpmX/br.com.escrevas.git
