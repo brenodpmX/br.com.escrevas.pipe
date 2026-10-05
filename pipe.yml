@@ -86,13 +86,13 @@ agents:
       name: Laura Azevedo - Engenheira de Software JR
       model: claude-haiku-4.5
     quality-sr:
-      name: Camila Rocha - Engenheira de Qualidade (QA)
+      name: Camila Rocha - Engenheira de Qualidade SR
       model: claude-sonnet-5
     quality-pl:
-      name: André Tavares - Engenheiro de Qualidade (QA)
+      name: André Tavares - Engenheiro de Qualidade PL
       model: auto
     quality-jr:
-      name: Marina Lopes - Engenheira de Qualidade (QA)
+      name: Marina Lopes - Engenheira de Qualidade Jr
       model: claude-haiku-4.5
     generic:
       name: Diego Santos - Analista de Operações
