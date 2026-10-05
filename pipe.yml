@@ -70,9 +70,12 @@ agents:
     ux:
       name: Talita Souza - User Experience
       model: claude-opus-5.5
-    reviewer:
+    reviewer-sr:
       name: Bruno Ferreira - Engenheiro de Software SR
       model: claude-sonnet-5
+    reviewer-pl:
+      name: Sofia Carvalho - Engenheira de Software PL
+      model: auto
     engineering-sr:
       name: Bruno Ferreira - Engenheiro de Software SR
       model: claude-opus-5.5
@@ -373,7 +376,12 @@ boards:
           advance: code-review
       code-review:
         name: "Code Review"
-        agent: reviewer
+        agent: reviewer-pl
+        agent-hub:
+          low: reviewer-pl
+          middle: reviewer-sr
+          high: reviewer-sr
+          specialist: reviewer-sr
         target-prompt: "Analisar o MR e verificar: se está seguindo as boas práticas; se está seguindo os padrões da arquitetura; se existe algum code-smell; se o que foi feito está de acordo com o que foi solicitado; se existe algum delírio; se o código compila; se a cobertura de testes está de acordo com o especificado; e se a complexidade do código está baixa, logo a legibilidade está ótima. Se tudo estiver bem, aprove e conclua o MR e avance para advance; se algum critério não passar, adicione a label 'retrabalho', anote o problema e avance para correcao.\nExcluir a branch após o merge request concluído. Obs.: Ao reanalisar a issue, não remova a tag retrabalho."
         change:
           advance: concluido
