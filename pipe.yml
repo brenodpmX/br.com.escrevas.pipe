@@ -319,7 +319,6 @@ boards:
     columns:
       backlog:
         name: Backlog
-        on_in: [-agent-hub-high, -agent-hub-middle, -agent-hub-low]
         on_out: [-agent-hub-high, -agent-hub-middle, -agent-hub-low]
         change:
           advance: planning-poker
