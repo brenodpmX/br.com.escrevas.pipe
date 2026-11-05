@@ -7,6 +7,8 @@ project:
 
 sleep: 300
 
+agent_timeout_seg: 3600   # timeout de uma execução do agente (s, inteiro > 0); ausente = 3600
+
 log:
   dir: logs
   ttl: 60
@@ -21,6 +23,21 @@ registro:               # registros de execução em .pipe/executionRecords.json
 
 safety:                 # contingência de operador (#310), relida do disco a cada vínculo
   cross_board_parent_links: enabled   # enabled (padrão) | suspended: recusa NOVOS vínculos pai/filho entre quadros distintos
+
+sync:                   # circuit-breaker de sincronismo (#309); todos os campos opcionais (defaults abaixo)
+  circuit_breaker:
+    persistence: file                  # file (.pipe/syncCircuitBreaker.json) | memory
+    escalation_agent: correcao-esteira # agente dedicado; deve existir em 'agents'
+    issue:
+      max_failures: 3                  # falhas consecutivas para bloquear a issue
+      block_duration: 300              # s de bloqueio da issue
+      max_blocks: 3                    # bloqueios consecutivos antes de escalar ao agente
+    platform:
+      max_blocked_issues: 5            # issues distintas bloqueadas para bloquear a plataforma
+      block_window: 600                # janela (s) para contar as issues bloqueadas
+      block_duration: 900              # s de bloqueio da plataforma
+    half_open:
+      success_threshold: 2             # sucessos em meio-aberto para fechar o circuito
 
 git:
   repo:
@@ -58,6 +75,9 @@ git:
 
 agents:
   kiro-cli:
+    correcao-esteira:
+      name: Agente de Correção da Esteira
+      model: claude-sonnet-5
     product:
       name: Helena Costa - Product Manager
       model: claude-opus-5.5
