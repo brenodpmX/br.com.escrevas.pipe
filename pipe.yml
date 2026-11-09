@@ -130,7 +130,7 @@ agents:
         limit: 250
       weekly:
         limit: 1250
-        reset_weekday: 0
+        reset_weekday: 6
 
 
 
