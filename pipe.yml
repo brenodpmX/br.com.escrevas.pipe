@@ -288,10 +288,6 @@ boards:
         name: "Encerrado"
         on_in: [archive]
         on_out: [-archive]
-    column-migrations:
-      pre-prod: solicitar-mudanca
-      merge-request: solicitar-mudanca
-      code-review: gmud
 
   story:
     name: "Escrevas - User Stories"
