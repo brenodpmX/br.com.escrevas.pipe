@@ -203,44 +203,62 @@ boards:
         target-prompt: "A partir da documentação aprovada, divida o épico em use stories, crie primeiro a documentação de cada use story e em seguida crie APENAS no board 'story' a issue relacionada. Baseie documentação e issue no template `contexts/templates/issues/user-story.md`.\n\nAo criar cada story filha: preencha SOMENTE a branch de origem/pai dela. Em 'Branch da issue pai' (Referências) e na anotação `branch pai:` da story, use a branch de trabalho DESTE épico. NÃO preencha a branch de trabalho da story: deixe 'Branch desta issue' e a anotação `branch:` como `(ainda não criada)`. A própria story criará sua branch de trabalho na primeira coluna do board story."
         change:
           advance: aguardando-stories
+      triagem-homologacao:
+        name: "Triagem de Homologação"
+        agent: tech-lead
+        gitevents: use
+        target-prompt: "Triagem: o dono reprovou a homologação.\n- Leia history e extraia o que foi reprovado. Sem descrição clara: 'need_human', pergunte, não avance.\n- Defeito (diverge do especificado): bug no board 'bug' (backlog), template bug.md, Issue original = este épico, Branch original = branch deste épico, '/blocks #<id deste épico>' no corpo.\n- Lacuna ou mudança: documentação + user story só no board 'story' (user-story.md); preencha apenas a branch pai (branch deste épico), deixe a branch da story '(ainda não criada)'.\n- Muda decisão de negócio, requisito ou arquitetura: 'need_human'.\n- Não duplique bug/story existente. Adicione a label 'retrabalho' (nunca remova).\n- Registre no addcomment: ponto → #id criado. Avance para advance."
+        change:
+          advance: aguardando-stories
       aguardando-stories:
         name: "Aguardando Stories"
         agent: generic
         gitevents: use
         target-prompt: "Checar se há alguma issue filha ativa, se houver adicionar no body da issue pai (esta aqui) em `/blocked_by` o ID das issues filhas ativas, o objetivo é manter esta issue aqui bloqueada enquanto houver filhas ativas;\nChecar se as issues filhas (User Story) foram criadas de forma duplicada no board Epic, se foram, remova apenas do board Epic, mantendo as do board User Story;\nSe não houver nenhuma issue filha ativa, avance para advance (só avance se não houver mais nenhuma issue filha)."
         change:
-          advance: pre-prod
-      pre-prod:
-        name: "Pré produção"
+          advance: documentacao
+      documentacao:
+        name: "Documentação"
         agent: tech-lead
         gitevents: use
-        target-prompt: "# Preparação para homologação\n- Mergear a branch main na branch da issue e resolver conflitos;\n- Validar que todas as mudanças estão presentes e íntegras;\n- Garantir que os seeds de homologação (`homolog/seeds/`) tenham os dados representativos para validar pelo front;\n- Smoke do ambiente: rode `bash homolog/homolog.sh up` a partir da branch da issue, confirme que sobe (a URL responde) e então `bash homolog/homolog.sh down`. NÃO monte ambiente ad-hoc nem escreva instruções: a homologação é padronizada pelo modo homolog (uma URL, só front). Se o smoke falhar, devolva ao desenvolvimento/correção com o diagnóstico;\n- Avançar para advance (homologação humana)."
+        target-prompt: "Atualizar README, documentações públicas e change files com o que será implantado neste épico. NÃO altere a versão (atribuída na Implantação). Em retrabalho, ajuste só o que mudou, sem duplicar entradas."
         change:
+          advance: aguardando-janela
+      aguardando-janela:
+        name: "Aguardando Janela"
+        on_in: [need_human]
+        on_out: [-need_human]
+        change:
+          advance: solicitar-mudanca
+      solicitar-mudanca:
+        name: "Solicitar Mudança"
+        agent: tech-lead
+        gitevents: merge
+        target-prompt: "Mudança liberada pelo dono. Prepare para revisão e homologação:\n- Mergear main na branch da issue; resolver conflitos (decisão de produto/arquitetura: 'need_human').\n- Validar que as mudanças das stories estão íntegras e que as versões das migrations Flyway não colidem com a main.\n- Garantir seeds em `homolog/seeds/` para validar pelo front.\n- Smoke: `bash homolog/homolog.sh up` e depois `down`. Não monte ambiente ad-hoc.\n- Publicar no addcomment o roteiro de homologação, sem prosa: branch e SHA; comando `bash homolog/homolog.sh up` e URL; contas de seed (e-mail/senha); por story, `- [ ] <rota> — <ação> → <resultado esperado>`, uma linha por critério verificável pelo front (máx. 10 por story).\n- Abrir o MR da branch para a destino; se já existir (retrabalho), apenas confirme que reflete os commits atuais.\n- Smoke falhou ou defeito fora do seu escopo: crie issue de bug no board 'bug' (backlog) pelo template bug.md, Issue original = este epic, Branch original = branch deste epic, '/blocks #<id deste epic>' no corpo; adicione a label 'retrabalho' a este epic (nunca remova) e avance para correcao.\n- Tudo certo: avance para advance."
+        change:
+          correcao: aguardando-stories
+          advance: gmud
+      gmud:
+        name: "GMUD"
+        agent: reviewer-sr
+        target-prompt: "GMUD: avalie o diff agregado do MR contra a main (tasks e stories já passaram por code review; não revise linha a linha). Não aprove nem faça merge (só na Implantação). Não altere código.\nVerifique:\n- escopo entregue = épico/stories/arquitetura, sem escopo extra;\n- compila, testes relevantes passam, cobertura conforme especificado;\n- migrations Flyway: versões sem colisão com a main, impacto em dados, rollback;\n- segredos/configs novos (Vault, variáveis) documentados e presentes na homologação;\n- segurança e privacidade (LGPD, PII em log, autorização no backend);\n- docs e change files coerentes (sem versão);\n- roteiro de homologação no history, coerente com os critérios de aceitação.\nAprovado: registre no addcomment veredito, SHA da branch, riscos residuais e plano de rollback; avance para advance.\nReprovado: crie issue de bug no board 'bug' (backlog) pelo template bug.md, Issue original = este epic, Branch original = branch deste epic, '/blocks #<id deste epic>' no corpo; adicione a label 'retrabalho' a este epic (nunca remova) e avance para correcao."
+        change:
+          correcao: aguardando-stories
           advance: homologacao
       homologacao:
         name: "Homologação"
         on_in: [need_human]
         on_out: [-need_human]
-      documentacao:
-        name: "Documentação"
-        agent: tech-lead
-        gitevents: use
-        target-prompt: "Atualizar a versão, README, documentações públicas e change files, refletindo as mudanças entregues"
         change:
-          advance: merge-request
-      merge-request:
-        name: "Merge Request"
+          advance: implantacao
+          correcao: triagem-homologacao
+      implantacao:
+        name: "Implantação"
         agent: generic
-        gitevents: merge
-        target-prompt: "Abrir o merge request da branch da issue para a branch de destino. Se já existir um merge request aberto para esta branch (caso de retrabalho), não crie outro — apenas confirme que reflete os commits atuais e prossiga."
+        gitevents: use
+        target-prompt: "Homologação aprovada. Etapa mecânica: não revise código.\nPré-condições; se alguma falhar, não faça merge, registre o motivo no addcomment e avance para retorno:\n- MR aberto da branch para a main;\n- head da branch = SHA aprovado no último comentário da GMUD;\n- MR sem conflito com a main;\n- nenhuma issue filha (story/bug) ativa bloqueando o épico.\nVersão: leia a atual na main (`api/pom.xml`, `web/package.json`) e suba o MINOR (X.Y.0 → X.(Y+1).0; pom mantém -SNAPSHOT). Altere só esses dois arquivos, em um commit `chore(release): versão <nova>`, e faça push.\nDepois conclua o merge do MR na main, não exclua a branch e avance para advance."
         change:
-          advance: code-review
-      code-review:
-        name: "Code Review"
-        agent: reviewer-sr
-        target-prompt: "Analisar o MR e verificar: boas práticas; padrões de arquitetura; code-smell; aderência ao solicitado; ausência de delírios; se compila; cobertura de testes conforme especificado; baixa complexidade/boa legibilidade. Se tudo estiver bem, aprove e conclua o merge e avance para advance. Se algum critério não passar, crie uma issue de bug no board 'bug' (coluna backlog) seguindo o template `contexts/templates/issues/bug.md`, descrevendo o problema; preencha as Referências do bug com 'Issue original' = este epic e 'Branch original' = a branch deste epic; no corpo do bug anote '/blocks #<id deste epic>' para que o bug bloqueie este epic; adicione a label 'retrabalho' a este epic e avance para correcao. Obs.: Ao reanalisar a issue, não remova a tag retrabalho."
-        change:
-          correcao: aguardando-stories
+          retorno: solicitar-mudanca
           advance: report-negocial
       report-negocial:
         name: "Report Negocial"
@@ -270,7 +288,11 @@ boards:
         name: "Encerrado"
         on_in: [archive]
         on_out: [-archive]
-  
+    column-migrations:
+      pre-prod: solicitar-mudanca
+      merge-request: solicitar-mudanca
+      code-review: gmud
+
   story:
     name: "Escrevas - User Stories"
     desc: "User stories: planejamento técnico → tasks → integração"

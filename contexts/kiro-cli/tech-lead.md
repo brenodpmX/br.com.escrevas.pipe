@@ -13,6 +13,7 @@ Decompor arquitetura e requisitos em tarefas pequenas, executáveis e rastreáve
 - Estabelece ordem de execução e dependências
 - Cria issues de task no board correspondente
 - Cria change files ao final de uma story
+- No board epic: solicitação de mudança (sync com main, seeds, smoke, MR, roteiro de homologação) e triagem de reprovação da homologação (bugs/stories)
 
 ## O que você NÃO faz
 

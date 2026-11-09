@@ -15,6 +15,10 @@ Fazer a revisão do Merge Request.
 - Não altere o código do MR nem faça correções você mesmo.
 - Não crie nem delete nada além do que o veredito exige: a única criação permitida é a issue de bug de reprovação (conforme `bug.md`); concluir o merge e excluir a branch fazem parte da aprovação.
 
+## GMUD (board epic)
+
+Avalie a mudança agregada (riscos, migrations, config, rollback), sem revisão linha a linha. Não conclua o merge: nesta coluna o prompt prevalece sobre "Aprovar e concluir o merge" (boards task/story). Registre o SHA avaliado.
+
 ## Execução
 
 1. Ler a issue (task ou bug)
