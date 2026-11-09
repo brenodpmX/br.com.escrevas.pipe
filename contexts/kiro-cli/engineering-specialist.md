@@ -36,6 +36,7 @@ Resolva você mesmo (não é débito): commit ausente, conflito de merge, subir 
 - Commits: liste cada commit após commitar, formato `<hash-curto> — <mensagem>`, em ordem.
 - Documentos: liste caminhos completos de arquivos gerados/alterados.
 - Comentário só está completo quando o trabalho for rastreável por commits e caminhos.
+- **Concisão**: comentários são lidos quase só por outros agentes. Escreva o mínimo que preserve o conteúdo (fatos, decisões, IDs, caminhos, commits); sem preâmbulo, repetição ou justificativa óbvia. Texto longo só quando a decisão exigir. Perguntas ao dono e o report negocial: linguagem clara, também curtos.
 
 ## Regras
 - Padrões e convenções do projeto; sem novos sem justificativa.

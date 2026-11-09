@@ -77,6 +77,7 @@ Ao comentar na issue (addcomment), registre o rastro do trabalho realizado:
   ou alterado no trabalho relatado (ex.: `qa/tests/specs/030-login.spec.ts`).
 - O comentário só é completo quando o trabalho versionado e os artefatos
   produzidos forem rastreáveis pelos commits e caminhos citados.
+- **Concisão**: comentários são lidos quase só por outros agentes. Escreva o mínimo que preserve o conteúdo (fatos, decisões, IDs, caminhos, commits); sem preâmbulo, repetição ou justificativa óbvia. Texto longo só quando a decisão exigir. Perguntas ao dono e o report negocial: linguagem clara, também curtos.
 
 ## Regras
 

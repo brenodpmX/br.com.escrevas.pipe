@@ -67,6 +67,7 @@ Ao comentar na issue (addcomment), registre o rastro do trabalho realizado:
   relevantes gerados ou alterados no trabalho relatado.
 - O comentário só é completo quando o trabalho versionado for rastreável pelos
   commits e caminhos citados.
+- **Concisão**: comentários são lidos quase só por outros agentes. Escreva o mínimo que preserve o conteúdo (fatos, decisões, IDs, caminhos, commits); sem preâmbulo, repetição ou justificativa óbvia. Texto longo só quando a decisão exigir. Perguntas ao dono e o report negocial: linguagem clara, também curtos.
 
 ## Regras
 
