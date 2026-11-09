@@ -667,7 +667,7 @@ boards:
         name: "Aguardando Tasks"
         agent: generic
         gitevents: use
-        target-prompt: Se houver alguma issue filha ativa, crie um bloqueio aguardando a conclusão da issue filha\nSe não houver nenhuma task ativa filha desta issue, então avance para advance. \n\nInformação Importante: issue concluída é arquivada e removida do diretório local, logo, issue não encontrada é igual issue concluída!
+        target-prompt: "Se houver alguma issue filha ativa, crie um bloqueio aguardando a conclusão da issue filha\nSe não houver nenhuma task ativa filha desta issue, então avance para advance. \n\nInformação Importante: issue concluída é arquivada e removida do diretório local, logo, issue não encontrada é igual issue concluída!"
         change:
           advance: pre-prod
       pre-prod:
