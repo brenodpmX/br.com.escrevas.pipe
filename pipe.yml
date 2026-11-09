@@ -214,7 +214,7 @@ boards:
         name: "Aguardando Stories"
         agent: generic
         gitevents: use
-        target-prompt: "Checar se há alguma issue filha ativa, se houver adicionar no body da issue pai (esta aqui) em `/blocked_by` o ID das issues filhas ativas, o objetivo é manter esta issue aqui bloqueada enquanto houver filhas ativas;\nChecar se as issues filhas (User Story) foram criadas de forma duplicada no board Epic, se foram, remova apenas do board Epic, mantendo as do board User Story;\nSe não houver nenhuma issue filha ativa, avance para advance (só avance se não houver mais nenhuma issue filha)."
+        target-prompt: "Checar se há alguma issue filha ativa, se houver adicionar no body da issue pai (esta aqui) em `/blocked_by` o ID das issues filhas ativas, o objetivo é manter esta issue aqui bloqueada enquanto houver filhas ativas;\nChecar se as issues filhas (User Story) foram criadas de forma duplicada no board Epic, se foram, remova apenas do board Epic, mantendo as do board User Story;\nSe não houver nenhuma issue filha ativa, avance para advance (só avance se não houver mais nenhuma issue filha).\n\nInformação Importante: issue concluída é arquivada e removida do diretório local, logo, issue não encontrada é igual issue concluída!"
         change:
           advance: documentacao
       documentacao:
@@ -256,7 +256,7 @@ boards:
         name: "Implantação"
         agent: generic
         gitevents: use
-        target-prompt: "Homologação aprovada. Etapa mecânica: não revise código.\nPré-condições; se alguma falhar, não faça merge, registre o motivo no addcomment e avance para retorno:\n- MR aberto da branch para a main;\n- head da branch = SHA aprovado no último comentário da GMUD;\n- MR sem conflito com a main;\n- nenhuma issue filha (story/bug) ativa bloqueando o épico.\nVersão: leia a atual na main (`api/pom.xml`, `web/package.json`) e suba o MINOR (X.Y.0 → X.(Y+1).0; pom mantém -SNAPSHOT). Altere só esses dois arquivos, em um commit `chore(release): versão <nova>`, e faça push.\nDepois conclua o merge do MR na main, não exclua a branch e avance para advance."
+        target-prompt: "Homologação aprovada. Etapa mecânica: não revise código.\nPré-condições; se alguma falhar, não faça merge, registre o motivo no addcomment e avance para retorno:\n- MR aberto da branch para a main;\n- head da branch = SHA aprovado no último comentário da GMUD;\n- MR sem conflito com a main;\n- nenhuma issue filha (story/bug) ativa bloqueando o épico.\nVersão: leia a atual na main (`api/pom.xml`, `web/package.json`) e suba o MINOR (X.Y.0 → X.(Y+1).0; pom mantém -SNAPSHOT). Altere só esses dois arquivos, em um commit `chore(release): versão <nova>`, e faça push.\nDepois conclua o merge do MR na main, não exclua a branch e avance para advance.\n\nInformação Importante: issue concluída é arquivada e removida do diretório local, logo, issue não encontrada é igual issue concluída!"
         change:
           retorno: solicitar-mudanca
           advance: report-negocial
@@ -317,7 +317,7 @@ boards:
         name: "Aguardando Tasks"
         agent: generic
         gitevents: use
-        target-prompt: "Checar se há alguma issue filha ativa, se houver adicionar no body da issue pai (esta aqui) em `/blocked_by` o ID das issues filhas ativas, o objetivo é manter esta issue aqui bloqueada enquanto houver filhas ativas;\nChecar se as issues filhas (Task) foram criadas de forma duplicada no board User Story, se foram, remova apenas do board User Story, mantendo as do board Task;\nSe não houver nenhuma issue filha ativa, avance para advance (só avance se não houver mais nenhuma issue filha)."
+        target-prompt: "Checar se há alguma issue filha ativa, se houver adicionar no body da issue pai (esta aqui) em `/blocked_by` o ID das issues filhas ativas, o objetivo é manter esta issue aqui bloqueada enquanto houver filhas ativas;\nChecar se as issues filhas (Task) foram criadas de forma duplicada no board User Story, se foram, remova apenas do board User Story, mantendo as do board Task;\nSe não houver nenhuma issue filha ativa, avance para advance (só avance se não houver mais nenhuma issue filha).\n\nInformação Importante: issue concluída é arquivada e removida do diretório local, logo, issue não encontrada é igual issue concluída!"
         change:
           advance: change-file
       change-file:
@@ -667,7 +667,7 @@ boards:
         name: "Aguardando Tasks"
         agent: generic
         gitevents: use
-        target-prompt: Se houver alguma issue filha ativa, crie um bloqueio aguardando a conclusão da issue filha\nSe não houver nenhuma task ativa filha desta issue, então avance para advance.
+        target-prompt: Se houver alguma issue filha ativa, crie um bloqueio aguardando a conclusão da issue filha\nSe não houver nenhuma task ativa filha desta issue, então avance para advance. \n\nInformação Importante: issue concluída é arquivada e removida do diretório local, logo, issue não encontrada é igual issue concluída!
         change:
           advance: pre-prod
       pre-prod:
