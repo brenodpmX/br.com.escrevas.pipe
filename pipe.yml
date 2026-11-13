@@ -127,13 +127,10 @@ agents:
       # UTC alinha o reset ao ciclo de créditos do Kiro (meia-noite UTC = ~21h em Brasília)
       timezone: UTC
       daily:
-        limit: 250
+        limit: 356
       weekly:
-        limit: 1250
+        limit: 1425
         reset_weekday: 6
-
-
-
 
 boards:
   platform: github
