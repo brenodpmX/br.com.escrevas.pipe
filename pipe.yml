@@ -295,7 +295,7 @@ boards:
     todo: backlog
     priority: 4
     flow: story
-    parallel: false
+    parallel: true
     columns:
       backlog:
         name: Backlog
